@@ -8,11 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     const typewriterElement = document.getElementById('typewriter');
     const phrases = [
-        "Senior Full-Stack Web Developer",
-        "Creator of 40+ Live Commercial Sites",
-        "Laravel, PHP & Vue.js Architect",
-        "Docker, GitHub & cPanel Deployment Expert",
-        "Enterprise HRMS & POS System Engineer"
+        "Senior Full-Stack Web Developer in Dhaka",
+        "Laravel & PHP Specialist in Bangladesh",
+        "Vue.js, React.js & Next.js Architect",
+        "Creator of 40+ Live Commercial Projects",
+        "Enterprise HRMS, POS & AdTech Engineer",
+        "Docker, GitHub & cPanel Deployment Expert"
     ];
     let phraseIdx = 0;
     let charIdx = 0;
@@ -185,6 +186,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalBody = document.getElementById('modal-body');
 
     const projectData = {
+        boostrava: {
+            title: "Boost RAVA Programmatic SSP, DSP, RTB & DOOH Ad Network",
+            category: "Programmatic AdTech & SaaS Platform",
+            url: "https://boostrava.com/",
+            github: "https://github.com/SOBOJBANGLA",
+            tech: ["Next.js", "React", "Tailwind CSS", "RTB Engine", "SSP / DSP Architecture", "REST API", "Analytics"],
+            description: "Full-stack programmatic ad network offering Supply-Side Platform (SSP), Demand-Side Platform (DSP), Real-Time Bidding (RTB) solutions, and DOOH advertising. Built with Next.js for high performance and scale, featuring automated media buying/selling, publisher monetization, advertiser campaigns, and cross-platform ad serving."
+        },
         teasoft: {
             title: "TeaSoft Systems Enterprise Platform",
             category: "Software Solutions & Enterprise",
