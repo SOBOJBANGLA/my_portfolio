@@ -265,6 +265,54 @@ document.addEventListener('DOMContentLoaded', () => {
             github: "https://github.com/SOBOJBANGLA",
             tech: ["Laravel", "Vue.js", "MySQL", "Role Permissions", "Invoice Engine"],
             description: "Enterprise point-of-sale solution for wholesale inventory distribution. Features real-time stock tracking, customer debt ledgers, barcode checkout, and multi-user authentication."
+        },
+        pharmahisab: {
+            title: "Pharmacy Store Management & Medicine ERP Platform",
+            category: "Healthcare & Pharmacy SaaS",
+            url: "",
+            github: "https://github.com/SOBOJBANGLA",
+            tech: ["Laravel", "PHP", "Vue.js", "MySQL", "20k+ Medicine Dataset", "Barcode Scanner", "Thermal POS"],
+            description: "Enterprise pharmacy ERP featuring 20,000+ national medicine database with generic auto-suggest, batch expiry tracking, shortage alerts, instant barcode scanning, purchase orders, and profit/loss financial statements."
+        },
+        olms: {
+            title: "Clinical Laboratory & Pathology Diagnostic ERP",
+            category: "Medical & Diagnostic ERP",
+            url: "",
+            github: "https://github.com/SOBOJBANGLA",
+            tech: ["Laravel", "Vue.js", "MySQL", "Specimen Barcode", "Doctor Commission Engine", "Pathology Reporting"],
+            description: "Clinical laboratory management software handling diagnostic test categories, patient specimen barcodes, automated PDF pathology test report generation, doctor referral commission ledgers, and multi-branch accounting."
+        },
+        garage: {
+            title: "Automotive Garage & Auto Parts Inventory ERP",
+            category: "Automotive & Workshop ERP",
+            url: "",
+            github: "https://github.com/SOBOJBANGLA",
+            tech: ["Laravel", "PHP", "MySQL", "Digital Job-Cards", "Auto Parts Inventory", "Invoice Engine"],
+            description: "Automobile repair and service shop ERP with digital intake inspection, vehicle job-card lifecycle, mechanic task assignments, spare parts inventory control, and multi-tier customer billing."
+        },
+        clothix: {
+            title: "Apparel Buying House & Textile Export Management Portal",
+            category: "Garments & Buying House",
+            url: "",
+            github: "https://github.com/SOBOJBANGLA",
+            tech: ["Laravel", "Vue.js", "Bootstrap", "Export Workflow", "Buyer Inquiry CRM"],
+            description: "International buying house digital portal for apparel exporters. Features fabric sample catalogs, buyer quotation (RFQ) pipelines, sampling approval milestones, and export shipment status tracking."
+        },
+        pigeon: {
+            title: "International Logistics & Courier Tracking System",
+            category: "Logistics & Courier Tracking",
+            url: "",
+            github: "https://github.com/SOBOJBANGLA",
+            tech: ["Laravel", "REST API", "MySQL", "Airway Bill (AWB)", "Live Tracking", "Branch Dispatch"],
+            description: "Full-scale courier and parcel logistics management system. Generates barcode Airway Bills (AWB), provides real-time public parcel tracking, delivery agent route dispatching, and branch collection reconciliation."
+        },
+        sslcommerz: {
+            title: "Payment Gateway Integration Engine",
+            category: "Payment Gateways & FinTech",
+            url: "",
+            github: "https://github.com/SOBOJBANGLA",
+            tech: ["Laravel 11/12", "PHP", "Payment Gateway API", "IPN Webhooks", "Ledger Reconciliation"],
+            description: "Production payment processing engine for Laravel supporting multi-channel transactions (Cards, Mobile Financial Services, Internet Banking). Handles automated checkout sessions, Instant Payment Notification (IPN) webhooks, transaction validation, and ledger balance reconciliation."
         }
     };
 

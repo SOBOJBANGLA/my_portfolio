@@ -1087,6 +1087,11 @@ img { max-width: 100%; display: block; }
 .text-yellow { color: #f59e0b; }
 .text-purple { color: #8b5cf6; }
 .text-indigo { color: #6366f1; }
+.text-teal { color: #14b8a6; }
+.text-pink { color: #ec4899; }
+.text-amber { color: #f59e0b; }
+.text-emerald { color: #10b981; }
+.text-sky { color: #0284c7; }
 
 /* --------------------------------------------------------------------------
    9. PROJECTS PORTFOLIO GRID & FILTERS
@@ -1159,6 +1164,12 @@ img { max-width: 100%; display: block; }
 .blood-bg { background: linear-gradient(135deg, #831843, #ec4899); }
 .realestate-bg { background: linear-gradient(135deg, #581c87, #8b5cf6); }
 .pos-bg { background: linear-gradient(135deg, #78350f, #f59e0b); }
+.pharma-bg { background: linear-gradient(135deg, #0f766e, #14b8a6); }
+.lab-bg { background: linear-gradient(135deg, #4338ca, #6366f1); }
+.garage-bg { background: linear-gradient(135deg, #c2410c, #f97316); }
+.clothix-bg { background: linear-gradient(135deg, #be185d, #f43f5e); }
+.courier-bg { background: linear-gradient(135deg, #1d4ed8, #60a5fa); }
+.fintech-bg { background: linear-gradient(135deg, #047857, #10b981); }
 
 .project-banner-icon {
     font-size: 4rem;
