@@ -295,9 +295,13 @@
                         <div class="card-glow"></div>
                         <div class="profile-card">
                             <div class="profile-header">
-                                <div class="avatar-ring">
-                                    <div class="avatar-inner">
-                                        <i class="fa-solid fa-user-gear avatar-icon"></i>
+                                <div class="avatar-frame square-interactive" id="hero-avatar-frame" title="Click to view full portrait" role="button" tabindex="0" aria-label="View full portrait of A.S.M. Abdullah">
+                                    <div class="avatar-glow"></div>
+                                    <div class="avatar-box">
+                                        <img src="c.png" alt="A.S.M. Abdullah - Senior Full Stack Web Developer" class="avatar-photo" id="hero-avatar-img">
+                                        <div class="avatar-overlay-shine"></div>
+                                        <div class="avatar-zoom-hint"><i class="fa-solid fa-expand"></i></div>
+                                        <div class="avatar-badge" title="Verified Full Stack Architect"><i class="fa-solid fa-circle-check"></i></div>
                                     </div>
                                 </div>
                                 <div class="status-indicator">
@@ -1550,6 +1554,25 @@
             </div>
             <div class="modal-body" id="modal-body">
                 <!-- Dynamic modal content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Portrait Photo Modal (Full High-Res View of f.jpg) -->
+    <div id="portrait-modal" class="portrait-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="portrait-modal-title">
+        <div class="portrait-modal-card glass-card">
+            <button id="portrait-modal-close" class="portrait-modal-close-btn" aria-label="Close Portrait View">&times;</button>
+            <div class="portrait-modal-img-wrap">
+                <img src="f.jpg" alt="A.S.M. Abdullah - Full Portrait" class="portrait-modal-img">
+                <div class="portrait-modal-overlay-glow"></div>
+            </div>
+            <div class="portrait-modal-caption">
+                <h3 id="portrait-modal-title">A.S.M. Abdullah</h3>
+                <p data-i18n="hero.card_role">Senior Full Stack Web Developer &amp; Laravel Architect</p>
+                <div class="portrait-modal-badges">
+                    <span class="p-badge"><i class="fa-solid fa-circle-check"></i> <span data-i18n="hero.card_status">Available for Hiring</span></span>
+                    <span class="p-badge"><i class="fa-solid fa-location-dot"></i> <span data-i18n="hero.card_location">Dhaka, Bangladesh</span></span>
+                </div>
             </div>
         </div>
     </div>

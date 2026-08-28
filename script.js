@@ -1883,7 +1883,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------------------------
-    // 24. SPOTLIGHT CURSOR-GLOW ON GLASS CARDS (modern lighting micro-interaction)
+    // 24. SPOTLIGHT CURSOR-GLOW & HERO AVATAR 3D TILT INTERACTION
     // ----------------------------------------------------------------------
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         document.querySelectorAll('.glass-card').forEach(card => {
@@ -1893,7 +1893,73 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.style.setProperty('--spot-y', `${e.clientY - rect.top}px`);
             });
         });
+
+        const heroAvatar = document.getElementById('hero-avatar-frame');
+        if (heroAvatar) {
+            heroAvatar.addEventListener('mousemove', (e) => {
+                const rect = heroAvatar.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                heroAvatar.style.transform = `perspective(600px) rotateX(${-y * 0.16}deg) rotateY(${x * 0.16}deg) translateY(-4px) scale(1.05)`;
+            });
+            heroAvatar.addEventListener('mouseleave', () => {
+                heroAvatar.style.transform = '';
+            });
+        }
     }
+
+    // ----------------------------------------------------------------------
+    // 25. HERO PORTRAIT FULL-VIEW MODAL (f.jpg)
+    // ----------------------------------------------------------------------
+    const portraitModal = document.getElementById('portrait-modal');
+    const portraitCloseBtn = document.getElementById('portrait-modal-close');
+    const heroAvatarFrame = document.getElementById('hero-avatar-frame');
+
+    function openPortraitModal() {
+        if (!portraitModal) return;
+        portraitModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePortraitModal() {
+        if (!portraitModal) return;
+        portraitModal.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    if (heroAvatarFrame) {
+        heroAvatarFrame.addEventListener('click', (e) => {
+            e.preventDefault();
+            openPortraitModal();
+        });
+        heroAvatarFrame.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openPortraitModal();
+            }
+        });
+    }
+
+    if (portraitCloseBtn) {
+        portraitCloseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closePortraitModal();
+        });
+    }
+
+    if (portraitModal) {
+        portraitModal.addEventListener('click', (e) => {
+            if (e.target === portraitModal) {
+                closePortraitModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && portraitModal && portraitModal.classList.contains('open')) {
+            closePortraitModal();
+        }
+    });
 
     // Initialize FAQ and Language across whole page after all elements & handlers are ready
     if (typeof renderFaqAccordion === 'function') {
