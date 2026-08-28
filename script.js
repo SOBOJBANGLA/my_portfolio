@@ -82,16 +82,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
+    function closeMobileMenu() {
+        if (navMenu) navMenu.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (hamburger) {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isActive = navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            document.body.style.overflow = isActive ? 'hidden' : '';
+        });
+    }
+
+    const mobileCloseBtn = document.getElementById('mobile-close-btn');
+    if (mobileCloseBtn) {
+        mobileCloseBtn.addEventListener('click', closeMobileMenu);
+    }
 
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-        });
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navMenu && navMenu.classList.contains('active')) {
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                closeMobileMenu();
+            }
+        }
     });
 
     // ----------------------------------------------------------------------
@@ -485,9 +506,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Form submit email handler
+    // Form submit email handler (Direct delivery to abuhmdabdullah72@gmail.com)
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const name = document.getElementById('name').value.trim();
@@ -501,16 +522,54 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Dispatched to Email...';
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending to Gmail...';
 
-            setTimeout(() => {
-                showToast('Message submitted! Opening mail app...');
+            try {
+                // Post directly via FormSubmit AJAX service straight to abuhmdabdullah72@gmail.com
+                const payload = {
+                    name: name,
+                    email: email,
+                    _replyto: email,
+                    subject: `[Portfolio Inquiry] ${subject} - from ${name}`,
+                    _subject: `[Portfolio Inquiry] ${subject} - from ${name}`,
+                    message: message,
+                    _template: 'table',
+                    _captcha: 'false'
+                };
+
+                const response = await fetch('https://formsubmit.co/ajax/abuhmdabdullah72@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json().catch(() => ({}));
+
+                if (response.ok && (data.success === 'true' || data.success === true || response.status === 200)) {
+                    showToast('🎉 Message sent successfully to abuhmdabdullah72@gmail.com! Abdullah will reply soon.');
+                    contactForm.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Sent to Gmail!';
+                    setTimeout(() => {
+                        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Email';
+                    }, 3500);
+                } else {
+                    throw new Error(data.message || 'Submission failed');
+                }
+            } catch (err) {
+                console.warn('Direct API submission error, opening webmail composer fallback:', err);
+                showToast('Launching direct Gmail composer...', false);
+                
+                // Fallback: Open Gmail Web Composer with pre-filled subject and body
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=abuhmdabdullah72@gmail.com&su=${encodeURIComponent("[Portfolio Inquiry] " + subject)}&body=${encodeURIComponent("Client Name: " + name + "\nClient Email: " + email + "\n\nProject Requirements:\n" + message)}`;
+                window.open(gmailUrl, '_blank');
+
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Email';
-
-                // Direct email dispatch to abuhmdabdullah72@gmail.com
-                window.location.href = `mailto:abuhmdabdullah72@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Client Name: " + name + "\nClient Email: " + email + "\n\nProject Requirements:\n" + message)}`;
-            }, 1000);
+            }
         });
     }
 
@@ -554,4 +613,660 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    // ----------------------------------------------------------------------
+    // 13. FUTURISTIC HEADER-LOGO PRELOADER WITH PROGRESS COUNTER
+    // ----------------------------------------------------------------------
+    const preloader = document.getElementById('preloader');
+    const preloaderFill = document.getElementById('preloader-fill');
+    const preloaderCounter = document.getElementById('preloader-counter');
+    const preloaderStatus = document.getElementById('preloader-status');
+
+    let loadProgress = 0;
+    const progressStatuses = [
+        { at: 10, text: "Initializing environment..." },
+        { at: 35, text: "Mounting Laravel & Web components..." },
+        { at: 65, text: "Loading 40+ production cases..." },
+        { at: 85, text: "Optimizing UI components & performance..." },
+        { at: 100, text: "Welcome to A.S.M. Abdullah's Portfolio!" }
+    ];
+
+    function setPreloaderProgress(val) {
+        loadProgress = Math.min(100, Math.max(0, val));
+        if (preloaderFill) preloaderFill.style.width = `${loadProgress}%`;
+        if (preloaderCounter) preloaderCounter.textContent = `${Math.round(loadProgress)}%`;
+        
+        if (preloaderStatus) {
+            for (let i = progressStatuses.length - 1; i >= 0; i--) {
+                if (loadProgress >= progressStatuses[i].at) {
+                    preloaderStatus.textContent = progressStatuses[i].text;
+                    break;
+                }
+            }
+        }
+    }
+
+    const progressInterval = setInterval(() => {
+        if (loadProgress < 85) {
+            setPreloaderProgress(loadProgress + Math.random() * 14 + 6);
+        }
+    }, 90);
+
+    function finishPreloader() {
+        clearInterval(progressInterval);
+        setPreloaderProgress(100);
+        setTimeout(() => {
+            if (preloader) preloader.classList.add('loaded');
+        }, 400);
+    }
+
+    if (document.readyState === 'complete') {
+        finishPreloader();
+    } else {
+        window.addEventListener('load', finishPreloader);
+    }
+    // Safety fallback in case 'load' fires late
+    setTimeout(finishPreloader, 2200);
+
+    // ----------------------------------------------------------------------
+    // 14. SCROLL PROGRESS BAR
+    // ----------------------------------------------------------------------
+    const progressFill = document.getElementById('scroll-progress-fill');
+    function updateScrollProgress() {
+        if (!progressFill) return;
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressFill.style.width = `${pct}%`;
+    }
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    updateScrollProgress();
+
+    // ----------------------------------------------------------------------
+    // 15. CUSTOM CURSOR (dot + lagging ring, with hover states)
+    // ----------------------------------------------------------------------
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorRing = document.getElementById('cursor-ring');
+    const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (cursorDot && cursorRing && isFinePointer) {
+        document.body.classList.add('cursor-ready');
+        let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+        let ringX = mouseX, ringY = mouseY;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
+        });
+
+        function animateRing() {
+            ringX += (mouseX - ringX) * 0.18;
+            ringY += (mouseY - ringY) * 0.18;
+            cursorRing.style.left = `${ringX}px`;
+            cursorRing.style.top = `${ringY}px`;
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        const hoverTargets = 'a, button, .btn, .filter-btn, .t-tab, .project-card, .stat-card, .specialty-card, input, textarea, .copy-btn, .theme-toggle-btn, .hamburger';
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest(hoverTargets)) cursorRing.classList.add('cursor-hover');
+        });
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest(hoverTargets)) cursorRing.classList.remove('cursor-hover');
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // 16. PARTICLE NETWORK BACKGROUND (signature ambient animation)
+    // ----------------------------------------------------------------------
+    const canvas = document.getElementById('particle-canvas');
+    if (canvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let width, height;
+        const isMobileView = window.innerWidth < 768;
+        const particleCount = isMobileView ? 28 : 60;
+        const maxLinkDist = isMobileView ? 100 : 140;
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        function createParticles() {
+            particles = Array.from({ length: particleCount }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                r: Math.random() * 1.6 + 0.8
+            }));
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, width, height);
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            const dotColor = isLight ? 'rgba(59, 130, 246, 0.55)' : 'rgba(147, 197, 253, 0.7)';
+            const lineColorBase = isLight ? '59, 130, 246' : '96, 165, 250';
+
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = dotColor;
+                ctx.fill();
+            });
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < maxLinkDist) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(${lineColorBase}, ${1 - dist / maxLinkDist})`;
+                        ctx.lineWidth = 0.6;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(drawParticles);
+        }
+
+        resizeCanvas();
+        createParticles();
+        drawParticles();
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                resizeCanvas();
+                createParticles();
+            }, 250);
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // 17. SCROLL-REVEAL ANIMATIONS (IntersectionObserver)
+    // ----------------------------------------------------------------------
+    const revealSelectors = [
+        '.section-title-wrapper',
+        '.about-card', '.about-details',
+        '.skills-category',
+        '.specialty-card',
+        '.project-card',
+        '.stat-card',
+        '.timeline-item',
+        '.contact-card',
+        '.contact-form-wrapper',
+        '.terminal-window'
+    ];
+
+    revealSelectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach((el, idx) => {
+            if (!el.hasAttribute('data-reveal')) {
+                if (el.classList.contains('timeline-item')) {
+                    el.setAttribute('data-reveal', el.classList.contains('left') ? 'left' : 'right');
+                } else if (el.classList.contains('specialty-card') || el.classList.contains('stat-card')) {
+                    el.setAttribute('data-reveal', 'zoom');
+                } else {
+                    el.setAttribute('data-reveal', 'up');
+                }
+                el.style.transitionDelay = `${(idx % 4) * 0.08}s`;
+            }
+        });
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+    // ----------------------------------------------------------------------
+    // 18. SLIDING NAV ACTIVE INDICATOR
+    // ----------------------------------------------------------------------
+    const navIndicator = document.getElementById('nav-indicator');
+    const navListEl = document.getElementById('nav-list');
+
+    function moveNavIndicator() {
+        if (!navIndicator || !navListEl) return;
+        const activeLink = navListEl.querySelector('.nav-link.active');
+        if (!activeLink) {
+            navIndicator.style.opacity = '0';
+            return;
+        }
+        const listRect = navListEl.getBoundingClientRect();
+        const linkRect = activeLink.getBoundingClientRect();
+        navIndicator.style.left = `${linkRect.left - listRect.left}px`;
+        navIndicator.style.width = `${linkRect.width}px`;
+        navIndicator.style.opacity = '1';
+    }
+
+    window.addEventListener('scroll', moveNavIndicator, { passive: true });
+    window.addEventListener('resize', moveNavIndicator);
+    navLinks.forEach(link => link.addEventListener('click', () => setTimeout(moveNavIndicator, 50)));
+    setTimeout(moveNavIndicator, 300);
+
+    // ----------------------------------------------------------------------
+    // 19. TILT EFFECT ON CARDS (profile card & project cards)
+    // ----------------------------------------------------------------------
+    function applyTilt(el, intensity = 10) {
+        el.classList.add('tilt-card');
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const rotateX = ((y / rect.height) - 0.5) * -intensity;
+            const rotateY = ((x / rect.width) - 0.5) * intensity;
+            el.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = 'perspective(900px) rotateX(0) rotateY(0) translateY(0)';
+        });
+    }
+
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        const profileCardEl = document.querySelector('.profile-card');
+        if (profileCardEl) applyTilt(profileCardEl, 6);
+        document.querySelectorAll('.project-card').forEach(card => applyTilt(card, 4));
+    }
+
+    // ----------------------------------------------------------------------
+    // 20. MAGNETIC BUTTON EFFECT
+    // ----------------------------------------------------------------------
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
+            btn.classList.add('magnetic-btn');
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.18}px, ${y * 0.35}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // 21. RIPPLE EFFECT ON BUTTON CLICK
+    // ----------------------------------------------------------------------
+    document.querySelectorAll('.btn, .filter-btn, .t-tab').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            const rect = this.getBoundingClientRect();
+            const ripple = document.createElement('span');
+            const size = Math.max(rect.width, rect.height);
+            ripple.className = 'ripple';
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+            ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 650);
+        });
+    });
+
+    // ----------------------------------------------------------------------
+    // 22. ON-PAGE FAQ ACCORDION DATA
+    // ----------------------------------------------------------------------
+    const faqData = [
+        {
+            q: "What technologies does Abdullah specialize in?",
+            a: "A.S.M. Abdullah specializes in Laravel, PHP, Vue.js, React.js and Next.js on the frontend/backend, MySQL for databases, REST API development, and deployment with Docker, GitHub and cPanel."
+        },
+        {
+            q: "How much experience does he have?",
+            a: "He has 3+ years of professional full-stack development experience and has delivered 40+ live commercial projects, currently working as a Software Engineer at Ontech ICT Ltd."
+        },
+        {
+            q: "Is Abdullah available for hire or freelance work?",
+            a: "Yes — he's currently available for hiring, freelance contracts, and remote roles. The fastest way to check availability is to message him directly via WhatsApp or the contact form below."
+        },
+        {
+            q: "What kind of projects has he built?",
+            a: "Highlights include the Boost RAVA programmatic ad network (SSP/DSP/RTB), enterprise HRMS & payroll systems, pharmacy and wholesale POS platforms, the LinkLine BD ISP portal, Rangpur Police & Rangpur News portals, and a payment gateway integration engine. Scroll to the Projects section to see all 40+."
+        },
+        {
+            q: "How can I contact Abdullah?",
+            a: "You can reach him on WhatsApp at +880 1639008885, by email at abuhmdabdullah72@gmail.com, or by filling out the contact form at the bottom of this page — it can dispatch straight to email or WhatsApp."
+        },
+        {
+            q: "Does he build enterprise software like HRMS, POS, or ERP systems?",
+            a: "Yes — he has deep experience building enterprise systems: HRMS & payroll, pharmacy/wholesale POS, clinical lab ERP, automotive garage ERP, garments export management, and courier logistics tracking, most built with Laravel, Vue.js, and MySQL."
+        }
+    ];
+
+    // Render FAQ accordion
+    const faqListEl = document.getElementById('faq-list');
+    if (faqListEl) {
+        faqData.forEach((item) => {
+            const faqItem = document.createElement('div');
+            faqItem.className = 'faq-item glass-card';
+            faqItem.innerHTML = `
+                <button class="faq-question" aria-expanded="false">
+                    <span>${item.q}</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">${item.a}</div>
+            `;
+            faqListEl.appendChild(faqItem);
+
+            const questionBtn = faqItem.querySelector('.faq-question');
+            const answerEl = faqItem.querySelector('.faq-answer');
+            questionBtn.addEventListener('click', () => {
+                const isOpen = faqItem.classList.contains('open');
+                faqListEl.querySelectorAll('.faq-item.open').forEach(openItem => {
+                    if (openItem !== faqItem) {
+                        openItem.classList.remove('open');
+                        openItem.querySelector('.faq-answer').style.maxHeight = null;
+                        openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    }
+                });
+                faqItem.classList.toggle('open', !isOpen);
+                questionBtn.setAttribute('aria-expanded', String(!isOpen));
+                answerEl.style.maxHeight = !isOpen ? `${answerEl.scrollHeight}px` : null;
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            faqListEl.querySelectorAll('.faq-item.open').forEach(openItem => {
+                const ans = openItem.querySelector('.faq-answer');
+                if (ans) ans.style.maxHeight = `${ans.scrollHeight}px`;
+            });
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // 23. COMPREHENSIVE AI AUTOMATION KNOWLEDGE BASE & ASSISTANT
+    // ----------------------------------------------------------------------
+    const aiKnowledgeBase = [
+        {
+            topic: "Tech Stack & Architecture",
+            keywords: ["tech", "stack", "skill", "language", "framework", "php", "laravel", "vue", "react", "next", "mysql", "redis", "docker", "cpanel", "tailwind", "rest api", "backend", "frontend", "technolog"],
+            a: "A.S.M. Abdullah is a Full-Stack Software Engineer with deep expertise across modern web technologies:\n• Backend: Laravel 10/11, PHP 8+, RESTful API Architecture, Microservices, Authentication (Sanctum/Passport)\n• Frontend: Vue.js 3 (Composition API, Pinia), React.js, Next.js (SSR/SSG), TypeScript, Tailwind CSS\n• Database & Cache: MySQL (Advanced Query Optimization, Indexing, Schema Design), Redis In-Memory Caching\n• DevOps: Docker, Git & GitHub CI/CD, cPanel, Nginx/Apache, Postman API testing."
+        },
+        {
+            topic: "Work Experience & Background",
+            keywords: ["experience", "years", "current", "company", "work", "job", "ontech", "background", "career", "role", "senior"],
+            a: "Abdullah brings 3+ years of commercial software engineering experience with 40+ delivered live projects. He currently serves as Software Engineer at Ontech ICT Ltd in Dhaka, leading backend architecture, database modeling, and enterprise ERP solutions."
+        },
+        {
+            topic: "Availability, Hiring & Freelance",
+            keywords: ["hire", "available", "freelance", "contract", "full-time", "part-time", "opportunity", "recruit", "remote", "job", "vacancy", "hire now"],
+            a: "Yes! Abdullah is actively available for hire for full-time positions, long-term contracts, and freelance projects worldwide.\n• Timezone Flexibility: Seamless collaboration across USA, UK, Europe, Australia, and Middle East timezones.\n• Fast Start: Available to onboard and begin development immediately.\n• Direct Connect: Reach out on WhatsApp (+880 1639008885) for instant availability confirmation."
+        },
+        {
+            topic: "40+ Projects & Featured Systems",
+            keywords: ["project", "projects", "portfolio", "built", "work", "showcase", "boostrava", "teasoft", "linkline", "rangpur", "best", "examples", "demos", "live"],
+            a: "Abdullah has built 40+ high-quality client applications, including:\n• Boost RAVA: High-throughput programmatic AdTech network (SSP/DSP/RTB) with real-time bidding.\n• Multi-Branch Enterprise HRMS & Payroll: Attendance sync, tax calculation, and salary ledger.\n• Pharmacy & Wholesale POS: High-speed barcode checkout, inventory batches, and profit analytics.\n• LinkLine BD ISP Portal: Customer broadband account management, radius sync, and bKash integration.\n• Rangpur Police & Rangpur News Portals: Official law enforcement directory and high-traffic news engine.\n• TeaSoft Platform: SaaS cloud application for modern enterprise digital workflows."
+        },
+        {
+            topic: "Enterprise ERP & POS Systems",
+            keywords: ["erp", "pos", "hrms", "payroll", "inventory", "pharmacy", "wholesale", "lab", "pathology", "garage", "logistics", "courier", "enterprise", "software"],
+            a: "Abdullah specializes in custom mission-critical enterprise systems:\n• HRMS & Payroll: Multi-branch organization tree, biometric sync, leave approval workflows, and payroll ledger.\n• Pharmacy POS: Barcode scanning, medicine batch tracking, expiry date alerts, and supplier accounts.\n• Clinical Lab ERP: Specimen barcode tracking, doctor referral commission ledger, and pathology report PDFs.\n• Automotive Garage ERP: Job card tracker, spare parts stock, technician timesheet, and invoice billing.\n• Pigeon Express Courier: Automated Airway Bill (AWB) routing, parcel manifest, and delivery app APIs."
+        },
+        {
+            topic: "Boost RAVA Programmatic AdTech Network",
+            keywords: ["boostrava", "adtech", "rtb", "ssp", "dsp", "ad network", "bidding", "impression", "advertiser", "publisher", "ad server"],
+            a: "Boost RAVA is a cutting-edge programmatic advertising platform engineered by Abdullah:\n• Supply-Side Platform (SSP): Real-time ad code generation, revenue share calculator, and anti-fraud filters.\n• Demand-Side Platform (DSP): Precise geo/device targeting, daily campaign budget limits, and live impression telemetry.\n• Performance: Built with Next.js, Node.js, and Redis caching for sub-50ms ad serving to millions of users."
+        },
+        {
+            topic: "Rates & Project Pricing",
+            keywords: ["rate", "rates", "price", "pricing", "cost", "budget", "quote", "charge", "hourly", "fixed", "payment", "salary", "quotation"],
+            a: "Abdullah offers flexible and competitive pricing structures customized for your project:\n• Milestone-Based Projects: Transparent pricing with clear deliverables, wireframing, sprint releases, and QA testing.\n• Hourly & Dedicated Contracts: Flexible arrangements tailored to ongoing development, maintenance, or feature builds.\n• Full-Time & Remote Roles: Open to discussion based on company requirements and scope.\n• Free Consultation & Quote: Reach out on WhatsApp (+880 1639008885) or submit the contact form with your project details for an immediate quote!"
+        },
+        {
+            topic: "Payment Gateways & FinTech Integrations",
+            keywords: ["payment", "gateway", "bkash", "nagad", "sslcommerz", "stripe", "paypal", "aamarpay", "rocket", "checkout", "fintech", "transaction"],
+            a: "Abdullah has integrated numerous secure local and global payment gateways:\n• Bangladesh Gateways: bKash (Tokenized & Direct Checkout), Nagad, SSLCommerz, Aamarpay, Rocket, Upay.\n• International Gateways: Stripe (Cards, Subscriptions, Apple/Google Pay), PayPal Checkout, Razorpay.\n• Security: Automated IPN webhook verification, cryptographic signature checks, and transaction auditing."
+        },
+        {
+            topic: "Database & Query Optimization",
+            keywords: ["speed", "performance", "optimization", "query", "database", "mysql", "redis", "indexing", "fast", "cache", "slow", "scale"],
+            a: "Abdullah implements proven high-performance optimization techniques:\n• Database: Composite B-tree indexing, eliminating N+1 query traps with eager loading, and query chunking.\n• Caching: Redis multi-layer caching for heavy queries, session state, and API payload caching.\n• Speed: Sub-100ms API latency and 95+ Google PageSpeed Core Web Vitals score."
+        },
+        {
+            topic: "Contact & Instant Channels",
+            keywords: ["contact", "reach", "email", "whatsapp", "phone", "call", "message", "inbox", "gmail", "how to contact", "touch"],
+            a: "You can reach Abdullah directly through multiple instant channels:\n• WhatsApp (Instant Chat): +880 1639008885 (Direct chat: wa.me/8801639008885)\n• Email: abuhmdabdullah72@gmail.com\n• Direct Phone: +880 1639008885\n• Contact Form: Located at the bottom of this page — dispatches directly to his Gmail inbox!"
+        },
+        {
+            topic: "Location & International Collaboration",
+            keywords: ["location", "based", "where", "dhaka", "bangladesh", "khilgaon", "international", "usa", "uk", "remote", "onsite", "country"],
+            a: "Abdullah is based in Khilgaon, Dhaka, Bangladesh, and routinely works with clients across Bangladesh, USA, UK, Canada, UAE, and Europe using Slack, GitHub, Jira, and Zoom."
+        },
+        {
+            topic: "Software Architecture & Code Quality",
+            keywords: ["process", "methodology", "quality", "clean code", "git", "github", "testing", "security", "agile", "delivery", "sprint", "solid"],
+            a: "Abdullah strictly follows modern engineering best practices:\n• Architecture: Clean MVC, Service-Repository pattern, SOLID principles, and DRY modular code.\n• Version Control: Git branching workflows, detailed commit notes, and pull request reviews.\n• Security: XSS protection, CSRF verification, prepared SQL statements, and strict input validation."
+        },
+        {
+            topic: "SEO Automation & SERP Ranking",
+            keywords: ["seo", "google", "ranking", "serp", "meta", "schema", "json-ld", "sitemap", "structured data"],
+            a: "Abdullah builds websites with built-in search engine dominance:\n• Dynamic JSON-LD structured data (Schema.org) for Google rich results\n• Open Graph & Twitter meta tags for social media previews\n• Automated XML sitemaps, semantic HTML5, and Core Web Vitals performance tuning."
+        },
+        {
+            topic: "Custom SaaS & Web Portals",
+            keywords: ["custom", "saas", "portal", "scratch", "new", "platform", "mvp", "dashboard", "startup", "web application"],
+            a: "Abdullah can take your custom idea from wireframe to a live, production-ready SaaS platform:\n• Responsive dashboard interfaces with Vue.js / React / Next.js\n• Robust REST API backends with Laravel and MySQL\n• Role-based user permissions, multi-tenant databases, and automated billing."
+        },
+        {
+            topic: "Next Steps to Start a Project",
+            keywords: ["start", "hire now", "begin", "consultation", "steps", "meeting", "discuss", "hire"],
+            a: "Starting a project with Abdullah is straightforward:\n1. Message him on WhatsApp (+880 1639008885) or submit the contact form.\n2. He will analyze your requirements and provide a free architectural consultation and timeline roadmap.\n3. Milestones are finalized, and development kicks off!"
+        }
+    ];
+
+    const aiFab = document.getElementById('ai-fab');
+    const aiPanel = document.getElementById('ai-panel');
+    const aiClose = document.getElementById('ai-close');
+    const aiMessages = document.getElementById('ai-messages');
+    const aiForm = document.getElementById('ai-form');
+    const aiInput = document.getElementById('ai-input');
+
+    let aiBackendAvailable = true;
+
+    function toggleAiPanel(forceOpen) {
+        const shouldOpen = forceOpen !== undefined ? forceOpen : !aiPanel.classList.contains('open');
+        aiPanel.classList.toggle('open', shouldOpen);
+        if (shouldOpen) setTimeout(() => aiInput.focus(), 300);
+    }
+
+    if (aiFab) aiFab.addEventListener('click', () => toggleAiPanel());
+    if (aiClose) aiClose.addEventListener('click', () => toggleAiPanel(false));
+
+    function formatBotMessage(text, question = '') {
+        let formatted = text
+            .replace(/\n/g, '<br>')
+            .replace(/• (.*?)(?=(<br>|$))/g, '<span class="ai-bullet">✦ $1</span>');
+
+        if (text.includes('01639008885') || text.includes('WhatsApp') || text.includes('abuhmdabdullah72@gmail.com')) {
+            formatted += `<div class="ai-action-pills"><a href="https://wa.me/8801639008885" target="_blank" class="ai-action-btn wa"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a><a href="mailto:abuhmdabdullah72@gmail.com" class="ai-action-btn mail"><i class="fa-solid fa-envelope"></i> Send Email</a></div>`;
+        }
+
+        // Add 2-3 interactive follow-up chips below each response
+        const qLower = (question || '').toLowerCase();
+        let followups = [];
+        if (qLower.includes('tech') || qLower.includes('stack') || qLower.includes('skill')) {
+            followups = [
+                { text: '🚀 40+ Projects', q: 'Tell me about his 40+ projects and best work' },
+                { text: '💰 Rates & Pricing', q: 'What are his hiring rates and pricing?' },
+                { text: '📱 Chat on WhatsApp', q: 'How can I contact Abdullah directly on WhatsApp or Email?' }
+            ];
+        } else if (qLower.includes('project') || qLower.includes('boostrava') || qLower.includes('pos')) {
+            followups = [
+                { text: '🏢 Enterprise ERP', q: 'What enterprise ERP and POS systems has he built?' },
+                { text: '⚡ Tech Stack', q: 'What is Abdullah\'s full tech stack?' },
+                { text: '💰 Hire & Rates', q: 'What are his hiring rates and pricing?' }
+            ];
+        } else if (qLower.includes('rate') || qLower.includes('hire') || qLower.includes('price')) {
+            followups = [
+                { text: '📱 Message on WhatsApp', q: 'How can I contact Abdullah directly on WhatsApp or Email?' },
+                { text: '💳 Payment Gateways', q: 'What payment gateways can he integrate?' },
+                { text: '🚀 View 40+ Projects', q: 'Tell me about his 40+ projects and best work' }
+            ];
+        } else {
+            followups = [
+                { text: '⚡ Tech Stack', q: 'What is Abdullah\'s full tech stack?' },
+                { text: '🚀 40+ Projects', q: 'Tell me about his 40+ projects and best work' },
+                { text: '💼 Hire / Rates', q: 'What are his hiring rates and pricing?' }
+            ];
+        }
+
+        if (followups.length > 0) {
+            formatted += `<div class="ai-followup-wrap">${followups.map(f => `<button type="button" class="ai-followup-btn" data-q="${f.q}">${f.text}</button>`).join('')}</div>`;
+        }
+
+        return formatted;
+    }
+
+    function appendMessage(text, sender, question = '') {
+        const msg = document.createElement('div');
+        msg.className = `ai-msg ai-msg-${sender}`;
+        if (sender === 'bot') {
+            msg.innerHTML = formatBotMessage(text, question);
+        } else {
+            msg.textContent = text;
+        }
+        aiMessages.appendChild(msg);
+        return msg;
+    }
+
+    function showTyping() {
+        const typing = document.createElement('div');
+        typing.className = 'ai-msg ai-msg-bot ai-msg-typing';
+        typing.innerHTML = '<span></span><span></span><span></span>';
+        aiMessages.appendChild(typing);
+        return typing;
+    }
+
+    function localAnswer(question) {
+        const q = question.toLowerCase().trim();
+        let bestMatch = null;
+        let bestScore = 0;
+
+        aiKnowledgeBase.forEach(item => {
+            let score = 0;
+            item.keywords.forEach(kw => {
+                if (q.includes(kw)) {
+                    score += kw.length > 4 ? 2 : 1;
+                }
+            });
+            if (score > bestScore) {
+                bestScore = score;
+                bestMatch = item;
+            }
+        });
+
+        if (bestMatch && bestScore > 0) return bestMatch.a;
+
+        return "I'd be glad to help with that! You can ask me about Abdullah's:\n• Tech stack (Laravel, Vue, React, Next.js, MySQL)\n• 40+ Commercial Projects & Systems (Boost RAVA, HRMS, POS, Portals)\n• Hiring Availability, Pricing & Rates\n• Payment Gateway Integrations\n• Or message him directly on WhatsApp (+880 1639008885) for an immediate response!";
+    }
+
+    async function askBackend(question) {
+        const response = await fetch('/.netlify/functions/ask-ai', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question })
+        });
+        if (!response.ok) throw new Error('Backend unavailable');
+        const data = await response.json();
+        if (!data || !data.answer) throw new Error('Malformed response');
+        return data.answer;
+    }
+
+    async function handleAiQuestion(question) {
+        const userMsg = appendMessage(question, 'user');
+        aiInput.value = '';
+        const typingEl = showTyping();
+
+        // Scroll to the user message immediately
+        setTimeout(() => {
+            aiMessages.scrollTo({
+                top: Math.max(0, userMsg.offsetTop - 15),
+                behavior: 'smooth'
+            });
+        }, 20);
+
+        let answer;
+        if (aiBackendAvailable) {
+            try {
+                answer = await askBackend(question);
+            } catch (err) {
+                aiBackendAvailable = false;
+                answer = localAnswer(question);
+            }
+        } else {
+            answer = localAnswer(question);
+        }
+
+        typingEl.remove();
+        const botMsg = appendMessage(answer, 'bot', question);
+
+        // Scroll smoothly to show the answer from the first line at the top of the viewport
+        setTimeout(() => {
+            if (userMsg && userMsg.offsetTop !== undefined) {
+                aiMessages.scrollTo({
+                    top: Math.max(0, userMsg.offsetTop - 12),
+                    behavior: 'smooth'
+                });
+            } else if (botMsg) {
+                aiMessages.scrollTo({
+                    top: Math.max(0, botMsg.offsetTop - 12),
+                    behavior: 'smooth'
+                });
+            }
+        }, 40);
+    }
+
+    if (aiForm) {
+        aiForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const question = aiInput.value.trim();
+            if (!question) return;
+            handleAiQuestion(question);
+        });
+    }
+
+    // Unified click handler for all prompt triggers (welcome cards, quick topic pills, follow-up buttons)
+    if (aiPanel) {
+        aiPanel.addEventListener('click', (e) => {
+            const btn = e.target.closest('[data-q]');
+            if (btn && btn.getAttribute('data-q')) {
+                e.preventDefault();
+                handleAiQuestion(btn.getAttribute('data-q'));
+            }
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // 24. SPOTLIGHT CURSOR-GLOW ON GLASS CARDS (modern lighting micro-interaction)
+    // ----------------------------------------------------------------------
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--spot-x', `${e.clientX - rect.left}px`);
+                card.style.setProperty('--spot-y', `${e.clientY - rect.top}px`);
+            });
+        });
+    }
 });
+

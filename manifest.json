@@ -1,0 +1,21 @@
+{
+  "name": "A.S.M. Abdullah - Full Stack & Laravel Developer",
+  "short_name": "Abdullah Dev",
+  "description": "Portfolio of A.S.M. Abdullah, Full Stack & Laravel Developer in Dhaka, Bangladesh.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0f1d",
+  "theme_color": "#0a0f1d",
+  "icons": [
+    {
+      "src": "b.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "b.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

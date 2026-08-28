@@ -19,11 +19,64 @@
     <meta property="og:description" id="og-desc-tag" content="3+ Years building 40+ Enterprise HRMS, POS Systems, LinkLine BD, Rangpur News, PartsPro BD, Boost RAVA Ad Network, and Web Applications with Laravel, PHP, Vue, React & Next.js.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://abdullahown.netlify.app/">
+    <meta property="og:image" content="https://abdullahown.netlify.app/b.png">
+    <meta property="og:image:alt" content="A.S.M. Abdullah - Full Stack Laravel Developer">
+    <meta property="og:site_name" content="A.S.M. Abdullah Portfolio">
+    <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card Meta -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="A.S.M. Abdullah | Laravel & Full Stack Developer in Bangladesh">
     <meta name="twitter:description" content="Senior Full Stack Web Developer specializing in Laravel, PHP, Vue.js, React.js, Next.js & Enterprise Web Applications in Bangladesh.">
+    <meta name="twitter:image" content="https://abdullahown.netlify.app/b.png">
+
+    <!-- Theme & PWA -->
+    <meta name="theme-color" content="#0a0f1d">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="A.S.M. Abdullah">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- JSON-LD: FAQPage (feeds AI Assistant & SERP rich results) -->
+    <script type="application/ld+json" id="faq-jsonld">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What technologies does A.S.M. Abdullah specialize in?",
+          "acceptedAnswer": { "@type": "Answer", "text": "He specializes in Laravel, PHP, Vue.js, React.js, Next.js, MySQL, REST API development, and DevOps deployment using Docker, GitHub, and cPanel." }
+        },
+        {
+          "@type": "Question",
+          "name": "How many years of experience does A.S.M. Abdullah have?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A.S.M. Abdullah has 3+ years of professional full-stack web development experience and has delivered 40+ live commercial projects." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Abdullah available for hire or freelance work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — he's currently available for hiring, freelance contracts, and remote roles. You can message him directly via WhatsApp or the contact form." }
+        },
+        {
+          "@type": "Question",
+          "name": "What kind of projects has A.S.M. Abdullah built?",
+          "acceptedAnswer": { "@type": "Answer", "text": "He has built enterprise HRMS, pharmacy and wholesale POS systems, ISP broadband portals, government portals, a programmatic ad network (Boostrava), news platforms, e-commerce stores, and payment gateway integrations." }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I hire or contact A.S.M. Abdullah?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You can reach him via WhatsApp at +880 1639008885, email at abuhmdabdullah72@gmail.com, or through the contact form on this portfolio." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does he build enterprise software like HRMS, POS, or ERP systems?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — he has deep experience building enterprise systems: HRMS & payroll, pharmacy/wholesale POS, clinical lab ERP, automotive garage ERP, garments export management, and courier logistics tracking, built with Laravel, Vue.js, and MySQL." }
+        }
+      ]
+    }
+    </script>
 
     <!-- JSON-LD Structured Data for SEO -->
     <script type="application/ld+json">
@@ -36,6 +89,14 @@
       "image": "https://abdullahown.netlify.app/b.png",
       "telephone": "+8801639008885",
       "email": "abuhmdabdullah72@gmail.com",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Ontech ICT Ltd"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Govt. Titumir College, Dhaka"
+      },
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "338/17/C, Khilgaon",
@@ -79,31 +140,94 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Futuristic Header-Logo Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-backdrop-glow"></div>
+        <div class="preloader-inner">
+            <div class="preloader-logo-container">
+                <div class="preloader-orbit-ring ring-1"></div>
+                <div class="preloader-orbit-ring ring-2"></div>
+                <div class="preloader-orbit-ring ring-3"></div>
+                <div class="preloader-logo-core">
+                    <img src="b.png" alt="A.S.M. Abdullah Logo" class="preloader-logo-img">
+                </div>
+                <div class="preloader-particles">
+                    <span class="p-dot dot-1"></span>
+                    <span class="p-dot dot-2"></span>
+                    <span class="p-dot dot-3"></span>
+                    <span class="p-dot dot-4"></span>
+                </div>
+            </div>
+
+            <div class="preloader-brand">
+                <span class="preloader-title">A.S.M. <span class="accent-text">ABDULLAH</span></span>
+                <span class="preloader-role">Full Stack &amp; Laravel Architect</span>
+            </div>
+
+            <div class="preloader-progress-wrap">
+                <div class="preloader-bar">
+                    <div class="preloader-fill" id="preloader-fill"></div>
+                </div>
+                <div class="preloader-meta">
+                    <span class="preloader-status" id="preloader-status">Initializing environment...</span>
+                    <span class="preloader-counter" id="preloader-counter">0%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"><div class="scroll-progress-fill" id="scroll-progress-fill"></div></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
     <!-- Background Canvas Decor -->
+    <canvas id="particle-canvas" class="particle-canvas"></canvas>
     <div class="bg-glow bg-glow-1"></div>
     <div class="bg-glow bg-glow-2"></div>
     <div class="grid-pattern"></div>
+    <div class="grain-overlay"></div>
 
     <!-- Header Navigation -->
     <header class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="#hero" class="nav-brand" aria-label="A.S.M. Abdullah Home">
                 <div class="brand-logo-wrap">
+                    <div class="brand-orbit-effect"></div>
                     <img src="b.png" alt="A.S.M. Abdullah Logo" class="brand-logo-img">
                 </div>
-                <span class="brand-name">A.S.M. <span class="accent-text">Abdullah</span></span>
+                <div class="brand-text-group">
+                    <span class="brand-name">A.S.M. <span class="accent-text">Abdullah</span></span>
+                    <span class="brand-status-tag"><span class="status-pulse-dot"></span> Available for Hire</span>
+                </div>
             </a>
 
             <nav class="nav-menu" id="nav-menu">
-                <ul class="nav-list">
-                    <li><a href="#hero" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a></li>
-                    <li><a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> About</a></li>
-                    <li><a href="#skills" class="nav-link"><i class="fa-solid fa-code"></i> Skills</a></li>
-                    <li><a href="#projects" class="nav-link"><i class="fa-solid fa-briefcase"></i> Projects</a></li>
-                    <li><a href="#terminal" class="nav-link"><i class="fa-solid fa-terminal"></i> Terminal</a></li>
-                    <li><a href="#experience" class="nav-link"><i class="fa-solid fa-timeline"></i> Systems</a></li>
-                    <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                <div class="mobile-nav-header">
+                    <div class="mobile-nav-brand">
+                        <img src="b.png" alt="Logo" class="mobile-logo-img">
+                        <span>A.S.M. <span class="accent-text">Abdullah</span></span>
+                    </div>
+                    <button class="mobile-close-btn" id="mobile-close-btn" aria-label="Close Menu">&times;</button>
+                </div>
+                <ul class="nav-list" id="nav-list">
+                    <span class="nav-indicator" id="nav-indicator"></span>
+                    <li><a href="#hero" class="nav-link active"><i class="fa-solid fa-house"></i> <span>Home</span></a></li>
+                    <li><a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> <span>About</span></a></li>
+                    <li><a href="#skills" class="nav-link"><i class="fa-solid fa-code"></i> <span>Skills</span></a></li>
+                    <li><a href="#projects" class="nav-link"><i class="fa-solid fa-briefcase"></i> <span>Projects</span></a></li>
+                    <li><a href="#faq" class="nav-link"><i class="fa-solid fa-circle-question"></i> <span>FAQ</span></a></li>
+                    <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> <span>Contact</span></a></li>
                 </ul>
+                <div class="mobile-nav-footer">
+                    <div class="mobile-socials">
+                        <a href="https://github.com/SOBOJBANGLA" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/abu-saleh-mohammad-abdullah-96ba67202/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://wa.me/8801639008885" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
             </nav>
 
             <div class="nav-actions">
@@ -111,7 +235,7 @@
                     <i class="fa-solid fa-moon icon-dark"></i>
                     <i class="fa-solid fa-sun icon-light"></i>
                 </button>
-                <a href="#contact" class="btn btn-sm btn-primary nav-cta">Let's Talk</a>
+                <a href="#contact" class="btn btn-sm btn-primary nav-cta">Let's Talk <i class="fa-solid fa-arrow-right"></i></a>
                 <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
                     <span></span>
                     <span></span>
@@ -1271,6 +1395,20 @@
             </div>
         </section>
 
+        <!-- Frequently Asked Questions (also powers the AI Assistant) -->
+        <section id="faq" class="section faq-section">
+            <div class="container">
+                <div class="section-title-wrapper">
+                    <span class="section-subtitle">Quick Answers</span>
+                    <h2 class="section-title">Frequently Asked <span class="highlight-text">Questions</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="faq-list" id="faq-list">
+                    <!-- Rendered by script.js from the shared knowledge base -->
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="section contact-section">
             <div class="container">
@@ -1307,10 +1445,10 @@
                         <div class="contact-card glass-card">
                             <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
                             <div class="c-details">
-                                <h4>Email Address</h4>
+                                <h4>Direct Gmail / Inbox</h4>
                                 <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=abuhmdabdullah72@gmail.com" target="_blank">abuhmdabdullah72@gmail.com</a></p>
                                 <div style="display: flex; gap: 0.5rem; margin-top: 0.3rem;">
-                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abuhmdabdullah72@gmail.com" target="_blank" class="chat-link">Open in Gmail <i class="fa-solid fa-arrow-right"></i></a>
+                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abuhmdabdullah72@gmail.com" target="_blank" class="chat-link">Compose Direct Mail <i class="fa-solid fa-arrow-right"></i></a>
                                     <button class="copy-btn" data-copy="abuhmdabdullah72@gmail.com"><i class="fa-solid fa-copy"></i> Copy</button>
                                 </div>
                             </div>
@@ -1319,8 +1457,21 @@
                         <div class="contact-card glass-card">
                             <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
                             <div class="c-details">
-                                <h4>Direct Phone / Call</h4>
-                                <p><a href="tel:+8801639008885">+880 1639008885</a> / <a href="tel:+8801624632072">+880 1624632072</a></p>
+                                <h4>Phone / Direct Call</h4>
+                                <p><a href="tel:+8801639008885">+880 1639008885</a></p>
+                                <div style="display: flex; gap: 0.5rem; margin-top: 0.3rem;">
+                                    <a href="tel:+8801639008885" class="chat-link">Call Now <i class="fa-solid fa-arrow-right"></i></a>
+                                    <button class="copy-btn" data-copy="+8801639008885"><i class="fa-solid fa-copy"></i> Copy</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-card glass-card">
+                            <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="c-details">
+                                <h4>Location & Work Base</h4>
+                                <p>338/17/C, Khilgaon, Dhaka - 1219, Bangladesh</p>
+                                <span class="status-indicator-inline"><span class="pulse-dot"></span> Available for Remote &amp; On-Site Contracts</span>
                             </div>
                         </div>
                     </div>
@@ -1378,6 +1529,62 @@
         </section>
     </main>
 
+    <!-- AI Assistant Widget -->
+    <div class="ai-widget">
+        <button class="ai-fab" id="ai-fab" aria-label="Open AI Assistant">
+            <i class="fa-solid fa-robot ai-fab-icon"></i>
+            <span class="ai-fab-pulse"></span>
+        </button>
+
+        <div class="ai-panel" id="ai-panel" role="dialog" aria-label="AI Assistant Chat">
+            <div class="ai-panel-header">
+                <div class="ai-header-info">
+                    <span class="ai-avatar"><i class="fa-solid fa-microchip"></i></span>
+                    <div>
+                        <h4>Ask AI about Abdullah</h4>
+                        <span class="ai-status"><span class="ai-status-dot"></span> Instant answers, 24/7</span>
+                    </div>
+                </div>
+                <button class="ai-close-btn" id="ai-close" aria-label="Close">&times;</button>
+            </div>
+
+            <div class="ai-messages" id="ai-messages">
+                <div class="ai-msg ai-msg-bot">
+                    <div>Hi, I'm Abdullah's AI Assistant 👋 Ask me anything or select a topic below:</div>
+                    <div class="ai-welcome-grid">
+                        <button type="button" class="ai-welcome-card" data-q="What is Abdullah's full tech stack?">
+                            <span class="ai-wc-icon">⚡</span>
+                            <span class="ai-wc-text">Tech Stack</span>
+                            <span class="ai-wc-sub">Laravel, Vue, Next, MySQL</span>
+                        </button>
+                        <button type="button" class="ai-welcome-card" data-q="Is Abdullah available for hire or freelance?">
+                            <span class="ai-wc-icon">💼</span>
+                            <span class="ai-wc-text">Available for Hire</span>
+                            <span class="ai-wc-sub">Full-time, Contract & Remote</span>
+                        </button>
+                        <button type="button" class="ai-welcome-card" data-q="Tell me about his 40+ projects and best work">
+                            <span class="ai-wc-icon">🚀</span>
+                            <span class="ai-wc-text">40+ Projects</span>
+                            <span class="ai-wc-sub">Boostrava, ERP, POS, Portals</span>
+                        </button>
+                        <button type="button" class="ai-welcome-card" data-q="What are his hiring rates and pricing?">
+                            <span class="ai-wc-icon">💰</span>
+                            <span class="ai-wc-text">Rates & Pricing</span>
+                            <span class="ai-wc-sub">Milestone & Custom Packages</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <form class="ai-input-row" id="ai-form">
+                <input type="text" id="ai-input" placeholder="Type your question..." autocomplete="off" />
+                <button type="submit" class="ai-send-btn" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+
     <!-- Project Detail Dialog Modal -->
     <dialog id="project-modal" class="project-modal glass-card">
         <div class="modal-header">
@@ -1388,7 +1595,6 @@
             <!-- Dynamic modal content -->
         </div>
     </dialog>
-
 
     <!-- Toast Notification Box -->
     <div id="toast" class="toast-notification">
@@ -1420,6 +1626,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">40+ Projects</a></li>
+                    <li><a href="#experience">Systems</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
