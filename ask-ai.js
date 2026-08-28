@@ -58,10 +58,11 @@ exports.handler = async (event) => {
     return { statusCode: 501, headers, body: JSON.stringify({ error: 'AI backend not configured' }) };
   }
 
-  let question;
+  let question, lang;
   try {
     const body = JSON.parse(event.body || '{}');
     question = (body.question || '').toString().trim().slice(0, 500);
+    lang = body.lang || 'en';
   } catch {
     return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid request body' }) };
   }
@@ -69,6 +70,11 @@ exports.handler = async (event) => {
   if (!question) {
     return { statusCode: 400, headers, body: JSON.stringify({ error: 'Question is required' }) };
   }
+
+  const isBengali = lang === 'bn' || /[\u0980-\u09FF]/.test(question);
+  const localizedSystemPrompt = isBengali
+    ? `${SYSTEM_PROMPT}\n\nIMPORTANT: The user prefers Bengali or asked in Bengali. Answer in natural, polite, and professional Bengali (বাংলা). Retain technical stack names like Laravel, PHP, Vue.js, React, Next.js, MySQL, etc. in standard form.`
+    : SYSTEM_PROMPT;
 
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -81,7 +87,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({
         model: 'claude-sonnet-5',
         max_tokens: 300,
-        system: SYSTEM_PROMPT,
+        system: localizedSystemPrompt,
         messages: [{ role: 'user', content: question }]
       })
     });

@@ -127,7 +127,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="b.png">
@@ -161,7 +161,7 @@
 
             <div class="preloader-brand">
                 <span class="preloader-title">A.S.M. <span class="accent-text">ABDULLAH</span></span>
-                <span class="preloader-role">Full Stack &amp; Laravel Architect</span>
+                <span class="preloader-role" data-i18n="hero.card_role">Full Stack &amp; Laravel Architect</span>
             </div>
 
             <div class="preloader-progress-wrap">
@@ -200,7 +200,7 @@
                 </div>
                 <div class="brand-text-group">
                     <span class="brand-name">A.S.M. <span class="accent-text">Abdullah</span></span>
-                    <span class="brand-status-tag"><span class="status-pulse-dot"></span> Available for Hire</span>
+                    <span class="brand-status-tag"><span class="status-pulse-dot"></span> <span data-i18n="nav.status">Available for Hire</span></span>
                 </div>
             </a>
 
@@ -210,16 +210,22 @@
                         <img src="b.png" alt="Logo" class="mobile-logo-img">
                         <span>A.S.M. <span class="accent-text">Abdullah</span></span>
                     </div>
-                    <button class="mobile-close-btn" id="mobile-close-btn" aria-label="Close Menu">&times;</button>
+                    <div class="mobile-nav-controls">
+                        <button id="mobile-lang-toggle" class="lang-toggle-btn" aria-label="Toggle Language (English / বাংলা)" title="Switch Language">
+                            <i class="fa-solid fa-globe"></i>
+                            <span class="lang-text" id="mobile-lang-indicator">বাং</span>
+                        </button>
+                        <button class="mobile-close-btn" id="mobile-close-btn" aria-label="Close Menu">&times;</button>
+                    </div>
                 </div>
                 <ul class="nav-list" id="nav-list">
                     <span class="nav-indicator" id="nav-indicator"></span>
-                    <li><a href="#hero" class="nav-link active"><i class="fa-solid fa-house"></i> <span>Home</span></a></li>
-                    <li><a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> <span>About</span></a></li>
-                    <li><a href="#skills" class="nav-link"><i class="fa-solid fa-code"></i> <span>Skills</span></a></li>
-                    <li><a href="#projects" class="nav-link"><i class="fa-solid fa-briefcase"></i> <span>Projects</span></a></li>
-                    <li><a href="#faq" class="nav-link"><i class="fa-solid fa-circle-question"></i> <span>FAQ</span></a></li>
-                    <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> <span>Contact</span></a></li>
+                    <li><a href="#hero" class="nav-link active"><i class="fa-solid fa-house"></i> <span data-i18n="nav.home">Home</span></a></li>
+                    <li><a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> <span data-i18n="nav.about">About</span></a></li>
+                    <li><a href="#skills" class="nav-link"><i class="fa-solid fa-code"></i> <span data-i18n="nav.skills">Skills</span></a></li>
+                    <li><a href="#projects" class="nav-link"><i class="fa-solid fa-briefcase"></i> <span data-i18n="nav.projects">Projects</span></a></li>
+                    <li><a href="#faq" class="nav-link"><i class="fa-solid fa-circle-question"></i> <span data-i18n="nav.faq">FAQ</span></a></li>
+                    <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
                 </ul>
                 <div class="mobile-nav-footer">
                     <div class="mobile-socials">
@@ -231,11 +237,15 @@
             </nav>
 
             <div class="nav-actions">
+                <button id="lang-toggle" class="lang-toggle-btn" aria-label="Toggle Language (English / বাংলা)" title="Switch Language">
+                    <i class="fa-solid fa-globe"></i>
+                    <span class="lang-text" id="lang-indicator">বাং</span>
+                </button>
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">
                     <i class="fa-solid fa-moon icon-dark"></i>
                     <i class="fa-solid fa-sun icon-light"></i>
                 </button>
-                <a href="#contact" class="btn btn-sm btn-primary nav-cta">Let's Talk <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#contact" class="btn btn-sm btn-primary nav-cta"><span data-i18n="nav.talk">Let's Talk</span> <i class="fa-solid fa-arrow-right"></i></a>
                 <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
                     <span></span>
                     <span></span>
@@ -251,26 +261,26 @@
             <div class="container hero-grid">
                 <div class="hero-content">
                     <div class="badge-pill">
-                        <span class="badge-dot"></span> Available for Hiring & 40+ Live Commercial Projects
+                        <span class="badge-dot"></span> <span data-i18n="hero.badge">Available for Hiring & 40+ Live Commercial Projects</span>
                     </div>
                     <h1 class="hero-title">
-                        Hi, I'm <span class="highlight-gradient">A.S.M. Abdullah</span>
+                        <span data-i18n="hero.greeting">Hi, I'm</span> <span class="highlight-gradient">A.S.M. Abdullah</span>
                     </h1>
                     <h2 class="hero-subtitle">
-                        I am a <span id="typewriter" class="typewriter-text"></span><span class="cursor">|</span>
+                        <span data-i18n="hero.role_lead">I am a</span> <span id="typewriter" class="typewriter-text"></span><span class="cursor">|</span>
                     </h2>
-                    <p class="hero-description">
+                    <p class="hero-description" data-i18n="hero.description" data-i18n-html="true">
                         Senior Full Stack Web Developer with 3+ years of experience engineering <strong>40+ high-quality client projects</strong>, enterprise HRMS, pharmacy POS systems, software platforms (TeaSoft), government portals (Rangpur Police), ISP portals (LinkLine BD), programmatic ad networks (<strong>Boostrava</strong>), news media, and dynamic web applications using <strong>Laravel, PHP, Vue.js, React, Next.js, and MySQL</strong>.
                     </p>
 
                     <div class="hero-actions">
-                        <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> View 40+ Projects</a>
-                        <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
-                        <a href="Abdullah(CV).pdf" download class="btn btn-secondary"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
+                        <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> <span data-i18n="hero.btn_projects">View 40+ Projects</span></a>
+                        <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="hero.btn_contact">Contact Me</span></a>
+                        <a href="Abdullah(CV).pdf" download class="btn btn-secondary"><i class="fa-solid fa-file-arrow-down"></i> <span data-i18n="hero.btn_cv">Download CV</span></a>
                     </div>
 
                     <div class="hero-socials">
-                        <span class="social-label">Connect with me:</span>
+                        <span class="social-label" data-i18n="hero.social_label">Connect with me:</span>
                         <a href="https://github.com/SOBOJBANGLA" target="_blank" aria-label="GitHub Profile"><i class="fa-brands fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/abu-saleh-mohammad-abdullah-96ba67202/" target="_blank" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin"></i></a>
                         <a href="https://www.facebook.com/ab.saleh.abdullah/" target="_blank" aria-label="Facebook Profile"><i class="fa-brands fa-facebook"></i></a>
@@ -291,12 +301,12 @@
                                     </div>
                                 </div>
                                 <div class="status-indicator">
-                                    <span class="status-pulse"></span> 40+ Live Client Apps
+                                    <span class="status-pulse"></span> <span data-i18n="hero.card_status">Available for Hiring</span>
                                 </div>
                             </div>
                             <div class="profile-body">
                                 <h3>A.S.M. Abdullah</h3>
-                                <p class="role-tag">Full Stack Software Engineer</p>
+                                <p class="role-tag" data-i18n="hero.card_role">Full Stack &amp; Laravel Architect</p>
                                 <div class="profile-tags">
                                     <span class="tag">Laravel</span>
                                     <span class="tag">PHP</span>
@@ -306,7 +316,7 @@
                                     <span class="tag">MySQL</span>
                                 </div>
                                 <div class="profile-location">
-                                    <i class="fa-solid fa-location-dot"></i> Dhaka, Bangladesh
+                                    <i class="fa-solid fa-location-dot"></i> <span data-i18n="hero.card_location">Dhaka, Bangladesh</span>
                                 </div>
                             </div>
                             <div class="code-snippet-box">
@@ -341,28 +351,28 @@
                         <div class="stat-icon"><i class="fa-solid fa-diagram-project"></i></div>
                         <div class="stat-info">
                             <h3 class="stat-number" data-target="40">0</h3><span class="stat-plus">+</span>
-                            <p class="stat-label">High-Quality Projects</p>
+                            <p class="stat-label" data-i18n="stats.projects_label">High-Quality Projects</p>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div>
                         <div class="stat-info">
                             <h3 class="stat-number" data-target="3">0</h3><span class="stat-plus">+</span>
-                            <p class="stat-label">Years Experience</p>
+                            <p class="stat-label" data-i18n="stats.exp_label">Years Experience</p>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon"><i class="fa-solid fa-globe"></i></div>
                         <div class="stat-info">
                             <h3 class="stat-number" data-target="10">0</h3><span class="stat-plus">+</span>
-                            <p class="stat-label">Featured Live Portals</p>
+                            <p class="stat-label" data-i18n="stats.clients_label">Featured Live Portals</p>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon"><i class="fa-solid fa-code-branch"></i></div>
                         <div class="stat-info">
                             <h3 class="stat-number" data-target="100">0</h3><span class="stat-plus">%</span>
-                            <p class="stat-label">Client Satisfaction</p>
+                            <p class="stat-label" data-i18n="stats.commits_label">Client Satisfaction</p>
                         </div>
                     </div>
                 </div>
@@ -373,19 +383,19 @@
         <section id="about" class="section about-section">
             <div class="container">
                 <div class="section-title-wrapper">
-                    <span class="section-subtitle">Biography & Mindset</span>
-                    <h2 class="section-title">About <span class="highlight-text">Me</span></h2>
+                    <span class="section-subtitle" data-i18n="about.subtitle">Biography & Mindset</span>
+                    <h2 class="section-title"><span data-i18n="about.title_prefix">About</span> <span class="highlight-text" data-i18n="about.title_highlight">Me</span></h2>
                     <div class="section-divider"></div>
                 </div>
 
                 <div class="about-grid">
                     <div class="about-card glass-card">
                         <div class="about-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                        <h3>Architecting Web Solutions</h3>
-                        <p>
+                        <h3 data-i18n="about.card_title">Architecting Web Solutions</h3>
+                        <p data-i18n="about.bio_p1" data-i18n-html="true">
                             I am a results-driven Full Stack Web Developer with over 3 years of hands-on technical experience having built <strong>over 40+ high-quality live projects</strong> for diverse commercial clients. My expertise spans robust backend architecture (<strong>Laravel, PHP, REST APIs, MySQL</strong>) and modern dynamic frontend & full-stack development (<strong>Vue.js, React.js, Next.js</strong>, JavaScript ES6+, HTML5, CSS3/Tailwind).
                         </p>
-                        <p>
+                        <p data-i18n="about.bio_p2" data-i18n-html="true">
                             From enterprise software platforms like <strong>TeaSoft</strong> and public service portals like <strong>Rangpur Police</strong>, to large-scale HRMS, POS software, ISP broadband platforms, digital news portals, and programmatic ad networks like <strong>Boostrava</strong>, I deliver clean, robust, and scalable code.
                         </p>
                         
@@ -393,35 +403,35 @@
                             <div class="highlight-item">
                                 <i class="fa-solid fa-circle-check"></i>
                                 <div>
-                                    <h4>40+ Delivered Client Projects</h4>
-                                    <p>Proven track record delivering reliable, production-ready web apps for clients.</p>
+                                    <h4 data-i18n="about.highlight1_title">40+ Delivered Client Projects</h4>
+                                    <p data-i18n="about.highlight1_desc">Proven track record delivering reliable, production-ready web apps for clients.</p>
                                 </div>
                             </div>
                             <div class="highlight-item">
                                 <i class="fa-solid fa-circle-check"></i>
                                 <div>
-                                    <h4>Complex Business Systems</h4>
-                                    <p>Deep expertise building Laravel/Vue HRMS, POS, ISP Portals, E-Commerce, and Next.js Ad Networks.</p>
+                                    <h4 data-i18n="about.highlight2_title">Complex Business Systems</h4>
+                                    <p data-i18n="about.highlight2_desc">Deep expertise building Laravel/Vue HRMS, POS, ISP Portals, E-Commerce, and Next.js Ad Networks.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="about-details glass-card">
-                        <h3>Personal Info & Quick Details</h3>
+                        <h3 data-i18n="about.quick_info_title">Personal Info & Quick Details</h3>
                         <ul class="info-list">
-                            <li><strong><i class="fa-solid fa-user"></i> Full Name:</strong> A.S.M. Abdullah</li>
-                            <li><strong><i class="fa-solid fa-briefcase"></i> Role:</strong> Senior Full Stack Web Developer</li>
-                            <li><strong><i class="fa-solid fa-location-dot"></i> Location:</strong> Khilgaon, Dhaka-1219, Bangladesh</li>
-                            <li><strong><i class="fa-solid fa-envelope"></i> Email:</strong> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abuhmdabdullah72@gmail.com" target="_blank">abuhmdabdullah72@gmail.com</a></li>
-                            <li><strong><i class="fa-brands fa-whatsapp"></i> WhatsApp:</strong> <a href="https://wa.me/8801639008885" target="_blank">+880 1639008885</a></li>
+                            <li><strong><i class="fa-solid fa-user"></i> <span data-i18n="about.info_name">Full Name</span>:</strong> A.S.M. Abdullah</li>
+                            <li><strong><i class="fa-solid fa-briefcase"></i> <span data-i18n="about.info_emp">Role</span>:</strong> <span data-i18n="about.info_emp_val">Senior Full Stack Web Developer</span></li>
+                            <li><strong><i class="fa-solid fa-location-dot"></i> <span data-i18n="about.info_loc">Location</span>:</strong> <span data-i18n="about.info_loc_val">Khilgaon, Dhaka-1219, Bangladesh</span></li>
+                            <li><strong><i class="fa-solid fa-envelope"></i> <span data-i18n="about.info_email">Email</span>:</strong> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abuhmdabdullah72@gmail.com" target="_blank">abuhmdabdullah72@gmail.com</a></li>
+                            <li><strong><i class="fa-brands fa-whatsapp"></i> <span data-i18n="about.info_phone">WhatsApp</span>:</strong> <a href="https://wa.me/8801639008885" target="_blank">+880 1639008885</a></li>
                             <li><strong><i class="fa-brands fa-facebook"></i> Messenger:</strong> <a href="https://m.me/ab.saleh.abdullah/" target="_blank">ab.saleh.abdullah</a></li>
                             <li><strong><i class="fa-brands fa-github"></i> GitHub:</strong> <a href="https://github.com/SOBOJBANGLA" target="_blank">SOBOJBANGLA</a></li>
-                            <li><strong><i class="fa-solid fa-file-pdf"></i> Resume CV:</strong> <a href="Abdullah(CV).pdf" download><i class="fa-solid fa-download"></i> Download Abdullah(CV).pdf</a></li>
+                            <li><strong><i class="fa-solid fa-file-pdf"></i> <span data-i18n="about.info_resume">Resume CV</span>:</strong> <a href="Abdullah(CV).pdf" download><i class="fa-solid fa-download"></i> Download Abdullah(CV).pdf</a></li>
                         </ul>
 
                         <div class="quick-skills-badges">
-                            <h4>Primary Stack Focus & DevOps:</h4>
+                            <h4 data-i18n="about.skills_header">Primary Stack Focus & DevOps:</h4>
                             <div class="badge-cloud">
                                 <span class="tech-badge"><i class="fa-brands fa-laravel"></i> Laravel</span>
                                 <span class="tech-badge"><i class="fa-brands fa-php"></i> PHP</span>
@@ -445,8 +455,8 @@
         <section id="skills" class="section skills-section">
             <div class="container">
                 <div class="section-title-wrapper">
-                    <span class="section-subtitle">Technical Competencies</span>
-                    <h2 class="section-title">Skills & <span class="highlight-text">Technologies</span></h2>
+                    <span class="section-subtitle" data-i18n="skills.subtitle">Technical Competencies</span>
+                    <h2 class="section-title"><span data-i18n="skills.title_prefix">Skills &</span> <span class="highlight-text" data-i18n="skills.title_highlight">Technologies</span></h2>
                     <div class="section-divider"></div>
                 </div>
 
@@ -455,7 +465,7 @@
                     <div class="skills-category glass-card">
                         <div class="category-header">
                             <i class="fa-solid fa-server category-icon"></i>
-                            <h3>Backend & Database</h3>
+                            <h3 data-i18n="skills.cat_backend">Backend & Database</h3>
                         </div>
                         <div class="skill-bar-list">
                             <div class="skill-bar-item">
@@ -493,7 +503,7 @@
                     <div class="skills-category glass-card">
                         <div class="category-header">
                             <i class="fa-solid fa-desktop category-icon"></i>
-                            <h3>Frontend & Full-Stack</h3>
+                            <h3 data-i18n="skills.cat_frontend">Frontend & Full-Stack</h3>
                         </div>
                         <div class="skill-bar-list">
                             <div class="skill-bar-item">
@@ -538,7 +548,7 @@
                     <div class="skills-category glass-card">
                         <div class="category-header">
                             <i class="fa-solid fa-cloud-arrow-up category-icon"></i>
-                            <h3>DevOps & Deployment</h3>
+                            <h3 data-i18n="skills.cat_devops">DevOps & Deployment</h3>
                         </div>
                         <div class="skill-bar-list">
                             <div class="skill-bar-item">
@@ -577,83 +587,23 @@
                 <div class="domain-specialties">
                     <div class="specialty-card">
                         <i class="fa-brands fa-react text-cyan"></i>
-                        <h4>Next.js & AdTech Apps</h4>
-                        <p>SSP/DSP platforms, RTB bid streams, real-time analytics, SSR high-performance web apps.</p>
+                        <h4 data-i18n="skills.spec1_title">Enterprise ERP & POS</h4>
+                        <p data-i18n="skills.spec1_desc">Automated inventory, accounting ledgers, barcode billing, and multi-branch synchronization.</p>
                     </div>
                     <div class="specialty-card">
-                        <i class="fa-brands fa-docker text-blue"></i>
-                        <h4>DevOps & cPanel Deploy</h4>
-                        <p>Docker containers, GitHub version control, cPanel production deployment, Nginx/Apache.</p>
-                    </div>
-                    <div class="specialty-card">
-                        <i class="fa-solid fa-wifi text-sky"></i>
-                        <h4>ISP & Network Portals</h4>
-                        <p>Broadband package displays, online bill payments, package query management.</p>
-                    </div>
-                    <div class="specialty-card">
-                        <i class="fa-solid fa-cart-shopping text-orange"></i>
-                        <h4>POS & Billing Systems</h4>
-                        <p>Barcode scanning, stock inventory management, cart system, thermal printing.</p>
-                    </div>
-                    <div class="specialty-card">
-                        <i class="fa-solid fa-people-roof text-indigo"></i>
-                        <h4>HRMS & Payroll</h4>
-                        <p>Employee records, attendance, leave approval, departments, automated payroll.</p>
-                    </div>
-                    <div class="specialty-card">
-                        <i class="fa-solid fa-newspaper text-red"></i>
-                        <h4>Dynamic CMS & Media</h4>
-                        <p>Digital newspaper platforms, multi-user role permission, SEO & article management.</p>
-                    </div>
-                    <div class="specialty-card">
-                        <i class="fa-solid fa-prescription-bottle-medical text-teal"></i>
-                        <h4>Pharmacy & Medical SaaS</h4>
-                        <p>Medicine inventory database, generic drug matching, batch expiry alert & POS billing.</p>
-                    </div>
-                    <div class="specialty-card">
-                        <i class="fa-solid fa-flask-vial text-purple"></i>
-                        <h4>Diagnostic & Lab ERP</h4>
-                        <p>Clinical test reporting, specimen barcode tracking, pathology invoices & commission ledger.</p>
-                    </div>
-                    <div class="specialty-card">
-                        <i class="fa-solid fa-wrench text-amber"></i>
-                        <h4>Garage & Auto Parts ERP</h4>
-                        <p>Vehicle service job-cards, spare parts inventory ERP, mechanic task logs & billing.</p>
-                    </div>
-                    <div class="specialty-card">
-                        <i class="fa-solid fa-shirt text-pink"></i>
-                        <h4>Garments & Buying House</h4>
-                        <p>Apparel export pipelines, fabric inventory control, buyer RFQ workflow & sample tracking.</p>
-                    </div>
-                    <div class="specialty-card">
-                        <i class="fa-solid fa-truck-fast text-blue"></i>
-                        <h4>Courier & Logistics Fleet</h4>
-                        <p>Airway bill (AWB) tracking, parcel routing, real-time shipment status & fleet dispatching.</p>
+                        <i class="fa-solid fa-chart-line text-blue"></i>
+                        <h4 data-i18n="skills.spec2_title">Programmatic AdTech</h4>
+                        <p data-i18n="skills.spec2_desc">Real-time bidding (RTB), SSP/DSP engines, anti-fraud filters, and sub-50ms banner serving.</p>
                     </div>
                     <div class="specialty-card">
                         <i class="fa-solid fa-credit-card text-emerald"></i>
-                        <h4>Payment Gateways & FinTech</h4>
-                        <p>Multi-channel checkout, automated webhook handlers & transaction reconciliation.</p>
+                        <h4 data-i18n="skills.spec3_title">FinTech & Gateways</h4>
+                        <p data-i18n="skills.spec3_desc">Seamless integration with bKash, Nagad, SSLCommerz, Aamarpay, Stripe, and PayPal.</p>
                     </div>
                     <div class="specialty-card">
-                        <i class="fa-solid fa-bag-shopping text-pink"></i>
-                        <h4>E-Commerce & Online Stores</h4>
-                        <p>Product catalog showcases, shopping cart engine, discount coupons, checkout & order tracking.</p>
-                    </div>
-                    <div class="specialty-card">
-                        <i class="fa-solid fa-building text-purple"></i>
-                        <h4>Real Estate & Property</h4>
-                        <p>Interactive property listings, floor plan showcases, inquiry CRM & unit booking.</p>
-                    </div>
-                    <div class="specialty-card">
-                        <i class="fa-solid fa-graduation-cap text-sky"></i>
-                        <h4>Education & Campus Portals</h4>
-                        <p>Online admission forms, academic routines, notice boards, result publishing & fee collection.</p>
-                    </div>
-                    <div class="specialty-card">
-                        <i class="fa-solid fa-network-wired text-cyan"></i>
-                        <h4>REST & GraphQL APIs</h4>
-                        <p>Secure token authentication (JWT/Sanctum), rate limiting, webhook dispatching & microservices.</p>
+                        <i class="fa-solid fa-gauge-high text-orange"></i>
+                        <h4 data-i18n="skills.spec4_title">Speed & Optimization</h4>
+                        <p data-i18n="skills.spec4_desc">Database indexing, Redis multi-level caching, eager loading, and sub-100ms API response times.</p>
                     </div>
                 </div>
             </div>
@@ -663,18 +613,18 @@
         <section id="projects" class="section projects-section">
             <div class="container">
                 <div class="section-title-wrapper">
-                    <span class="section-subtitle">40+ Client Applications Built</span>
-                    <h2 class="section-title">Featured <span class="highlight-text">Live Projects</span></h2>
+                    <span class="section-subtitle" data-i18n="projects.subtitle">40+ Client Applications Built</span>
+                    <h2 class="section-title"><span data-i18n="projects.title_prefix">Featured</span> <span class="highlight-text" data-i18n="projects.title_highlight">Live Projects</span></h2>
                     <div class="section-divider"></div>
                 </div>
 
                 <!-- Filter Controls -->
                 <div class="portfolio-filter-controls">
-                    <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="live">Live Web Portals</button>
-                    <button class="filter-btn" data-filter="enterprise">Enterprise & POS</button>
-                    <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
-                    <button class="filter-btn" data-filter="ngo">NGO & Education</button>
+                    <button class="filter-btn active" data-filter="all" data-i18n="projects.filter_all">All Projects</button>
+                    <button class="filter-btn" data-filter="live" data-i18n="projects.filter_live">Live Web Portals</button>
+                    <button class="filter-btn" data-filter="enterprise" data-i18n="projects.filter_enterprise">Enterprise & POS</button>
+                    <button class="filter-btn" data-filter="ecommerce" data-i18n="projects.filter_ecommerce">E-Commerce</button>
+                    <button class="filter-btn" data-filter="ngo" data-i18n="projects.filter_ngo">NGO & Education</button>
                 </div>
 
                 <!-- Project Grid -->
@@ -704,6 +654,7 @@
                             </div>
                             <div class="project-links">
                                 <a href="https://boostrava.com/" target="_blank" class="project-link-btn"><i class="fa-solid fa-globe"></i> Live Web App</a>
+                                <button class="project-link-btn btn-detail-modal" data-project="boostrava"><i class="fa-solid fa-circle-info"></i> Details</button>
                             </div>
                         </div>
                     </div>
@@ -732,6 +683,7 @@
                             </div>
                             <div class="project-links">
                                 <a href="https://teasoft.com.bd/" target="_blank" class="project-link-btn"><i class="fa-solid fa-globe"></i> Live Web App</a>
+                                <button class="project-link-btn btn-detail-modal" data-project="teasoft"><i class="fa-solid fa-circle-info"></i> Details</button>
                             </div>
                         </div>
                     </div>
@@ -760,6 +712,7 @@
                             </div>
                             <div class="project-links">
                                 <a href="https://police.rangpur.news/" target="_blank" class="project-link-btn"><i class="fa-solid fa-globe"></i> Live Portal</a>
+                                <button class="project-link-btn btn-detail-modal" data-project="police"><i class="fa-solid fa-circle-info"></i> Details</button>
                             </div>
                         </div>
                     </div>
@@ -788,6 +741,7 @@
                             </div>
                             <div class="project-links">
                                 <a href="https://linklinebd.com/" target="_blank" class="project-link-btn"><i class="fa-solid fa-globe"></i> Live Web App</a>
+                                <button class="project-link-btn btn-detail-modal" data-project="linkline"><i class="fa-solid fa-circle-info"></i> Details</button>
                             </div>
                         </div>
                     </div>
@@ -816,6 +770,7 @@
                             </div>
                             <div class="project-links">
                                 <a href="https://mirzaschool.edu.bd/" target="_blank" class="project-link-btn"><i class="fa-solid fa-globe"></i> Live Preview</a>
+                                <button class="project-link-btn btn-detail-modal" data-project="mirza"><i class="fa-solid fa-circle-info"></i> Details</button>
                             </div>
                         </div>
                     </div>
@@ -844,7 +799,7 @@
                             </div>
                             <div class="project-links">
                                 <a href="https://rangpur.news/" target="_blank" class="project-link-btn"><i class="fa-solid fa-globe"></i> Live Portal</a>
-                                <a href="https://github.com/SOBOJBANGLA/rangpur_news" target="_blank" class="project-link-btn"><i class="fa-brands fa-github"></i> Code</a>
+                                <button class="project-link-btn btn-detail-modal" data-project="rangpur"><i class="fa-solid fa-circle-info"></i> Details</button>
                             </div>
                         </div>
                     </div>
@@ -872,7 +827,8 @@
                                 <span>REST API</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://www.partsprobd.com/" target="_blank" class="project-link-btn"><i class="fa-solid fa-cart-shopping"></i> E-Commerce Site</a>
+                                <a href="https://www.partsprobd.com/" target="_blank" class="project-link-btn"><i class="fa-solid fa-cart-shopping"></i> E-Commerce</a>
+                                <button class="project-link-btn btn-detail-modal" data-project="partspro"><i class="fa-solid fa-circle-info"></i> Details</button>
                             </div>
                         </div>
                     </div>
@@ -901,6 +857,7 @@
                             </div>
                             <div class="project-links">
                                 <a href="https://sbda.org.bd/" target="_blank" class="project-link-btn"><i class="fa-solid fa-heart-pulse"></i> Live Platform</a>
+                                <button class="project-link-btn btn-detail-modal" data-project="sbda"><i class="fa-solid fa-circle-info"></i> Details</button>
                             </div>
                         </div>
                     </div>
@@ -929,6 +886,7 @@
                             </div>
                             <div class="project-links">
                                 <a href="https://wsdms.ontechict.com.bd/auth-login" target="_blank" class="project-link-btn"><i class="fa-solid fa-key"></i> POS Portal</a>
+                                <button class="project-link-btn btn-detail-modal" data-project="wsdms"><i class="fa-solid fa-circle-info"></i> Details</button>
                             </div>
                         </div>
                     </div>
@@ -1282,8 +1240,8 @@
         <section id="experience" class="section timeline-section">
             <div class="container">
                 <div class="section-title-wrapper">
-                    <span class="section-subtitle">Track Record Across 40+ Projects</span>
-                    <h2 class="section-title">Enterprise <span class="highlight-text">Systems Built</span></h2>
+                    <span class="section-subtitle" data-i18n="timeline.subtitle">Track Record Across 40+ Projects</span>
+                    <h2 class="section-title"><span data-i18n="timeline.title_prefix">Enterprise</span> <span class="highlight-text" data-i18n="timeline.title_highlight">Systems Built</span></h2>
                     <div class="section-divider"></div>
                 </div>
 
@@ -1292,9 +1250,9 @@
                     <div class="timeline-item left">
                         <div class="timeline-dot"><i class="fa-solid fa-rectangle-ad"></i></div>
                         <div class="timeline-content glass-card">
-                            <span class="timeline-date">AdTech & Next.js Architecture</span>
-                            <h3>Boost RAVA Programmatic SSP, DSP & RTB Network</h3>
-                            <p>Full-scale programmatic ad exchange platform engineered with Next.js and React. Integrates Supply-Side Platform (SSP), Demand-Side Platform (DSP), Real-Time Bidding (RTB) engine, and DOOH media delivery with live publisher monetization and advertiser campaign analytics.</p>
+                            <span class="timeline-date" data-i18n="timeline.sys1_date">AdTech & Next.js Architecture</span>
+                            <h3 data-i18n="timeline.sys1_title">Boost RAVA Programmatic SSP, DSP & RTB Network</h3>
+                            <p data-i18n="timeline.sys1_desc">Full-scale programmatic ad exchange platform engineered with Next.js and React. Integrates Supply-Side Platform (SSP), Demand-Side Platform (DSP), Real-Time Bidding (RTB) engine, and DOOH media delivery with live publisher monetization and advertiser campaign analytics.</p>
                             <div class="timeline-tags">
                                 <span>Next.js</span><span>React</span><span>Tailwind CSS</span><span>RTB Engine</span><span>REST API</span>
                             </div>
@@ -1305,9 +1263,9 @@
                     <div class="timeline-item right">
                         <div class="timeline-dot"><i class="fa-solid fa-wifi"></i></div>
                         <div class="timeline-content glass-card">
-                            <span class="timeline-date">ISP Architecture</span>
-                            <h3>LinkLine BD ISP Broadband Platform</h3>
-                            <p>Web infrastructure for broadband internet service provider with package plan displays, coverage region locator, bill inquiry module, and direct line request routing.</p>
+                            <span class="timeline-date" data-i18n="timeline.sys2_date">ISP Architecture</span>
+                            <h3 data-i18n="timeline.sys2_title">LinkLine BD ISP Broadband Platform</h3>
+                            <p data-i18n="timeline.sys2_desc">Web infrastructure for broadband internet service provider with package plan displays, coverage region locator, bill inquiry module, and direct line request routing.</p>
                             <div class="timeline-tags">
                                 <span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span>
                             </div>
@@ -1318,9 +1276,9 @@
                     <div class="timeline-item left">
                         <div class="timeline-dot"><i class="fa-solid fa-users-gear"></i></div>
                         <div class="timeline-content glass-card">
-                            <span class="timeline-date">Enterprise Core</span>
-                            <h3>Human Resource Management System (HRMS)</h3>
-                            <p>Full-featured HRM system managing employee master records, salary structure, attendance tracking, leave requests, department hierarchies, performance evaluation, and multi-format reporting.</p>
+                            <span class="timeline-date" data-i18n="timeline.sys3_date">Enterprise Core</span>
+                            <h3 data-i18n="timeline.sys3_title">Human Resource Management System (HRMS)</h3>
+                            <p data-i18n="timeline.sys3_desc">Full-featured HRM system managing employee master records, salary structure, attendance tracking, leave requests, department hierarchies, performance evaluation, and multi-format reporting.</p>
                             <div class="timeline-tags">
                                 <span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Bootstrap</span>
                             </div>
@@ -1331,9 +1289,9 @@
                     <div class="timeline-item right">
                         <div class="timeline-dot"><i class="fa-solid fa-prescription-bottle-medical"></i></div>
                         <div class="timeline-content glass-card">
-                            <span class="timeline-date">POS Module</span>
-                            <h3>Pharmacy Store Management & Billing POS</h3>
-                            <p>Complete pharmacy software managing medicine stock inventories, purchase orders, expiry alerts, barcode reader checkout, instant thermal invoice printouts, and daily profit analytics.</p>
+                            <span class="timeline-date" data-i18n="timeline.sys4_date">POS Module</span>
+                            <h3 data-i18n="timeline.sys4_title">Pharmacy Store Management & Billing POS</h3>
+                            <p data-i18n="timeline.sys4_desc">Complete pharmacy software managing medicine stock inventories, purchase orders, expiry alerts, barcode reader checkout, instant thermal invoice printouts, and daily profit analytics.</p>
                             <div class="timeline-tags">
                                 <span>Laravel</span><span>AJAX</span><span>jQuery</span><span>Bootstrap</span><span>Thermal Print</span>
                             </div>
@@ -1344,9 +1302,9 @@
                     <div class="timeline-item left">
                         <div class="timeline-dot"><i class="fa-solid fa-calculator"></i></div>
                         <div class="timeline-content glass-card">
-                            <span class="timeline-date">Accounting & HR</span>
-                            <h3>Wholesale Accounts & HR Integrated Solution</h3>
-                            <p>Unified enterprise portal linking wholesale inventory accounts, supplier/customer ledgers, automated invoice generation, payment receipts, and automated staff salary disbursement.</p>
+                            <span class="timeline-date" data-i18n="timeline.sys5_date">Accounting & HR</span>
+                            <h3 data-i18n="timeline.sys5_title">Wholesale Accounts & HR Integrated Solution</h3>
+                            <p data-i18n="timeline.sys5_desc">Unified enterprise portal linking wholesale inventory accounts, supplier/customer ledgers, automated invoice generation, payment receipts, and automated staff salary disbursement.</p>
                             <div class="timeline-tags">
                                 <span>Laravel</span><span>MySQL</span><span>Vue.js</span><span>Financial Reports</span>
                             </div>
@@ -1357,9 +1315,9 @@
                     <div class="timeline-item right">
                         <div class="timeline-dot"><i class="fa-solid fa-newspaper"></i></div>
                         <div class="timeline-content glass-card">
-                            <span class="timeline-date">Media Publishing</span>
-                            <h3>Online Digital Newspaper System</h3>
-                            <p>High-speed news publishing framework with article categorization, media uploads, breaking news ticker, banner ad manager, and SEO metadata automation.</p>
+                            <span class="timeline-date" data-i18n="timeline.sys6_date">Media Publishing</span>
+                            <h3 data-i18n="timeline.sys6_title">Online Digital Newspaper System</h3>
+                            <p data-i18n="timeline.sys6_desc">High-speed news publishing framework with article categorization, media uploads, breaking news ticker, banner ad manager, and SEO metadata automation.</p>
                             <div class="timeline-tags">
                                 <span>Laravel</span><span>Vue.js</span><span>Blade</span><span>SEO Engine</span>
                             </div>
@@ -1370,9 +1328,9 @@
                     <div class="timeline-item left">
                         <div class="timeline-dot"><i class="fa-solid fa-flask-vial"></i></div>
                         <div class="timeline-content glass-card">
-                            <span class="timeline-date">Diagnostic & Healthcare ERP</span>
-                            <h3>OLMS Clinical Laboratory & Pathology ERP</h3>
-                            <p>Automated clinical laboratory software with patient specimen barcode management, pathology test report generation, doctor referral commission tracking, and billing ledger.</p>
+                            <span class="timeline-date" data-i18n="timeline.sys7_date">Diagnostic & Healthcare ERP</span>
+                            <h3 data-i18n="timeline.sys7_title">OLMS Clinical Laboratory & Pathology ERP</h3>
+                            <p data-i18n="timeline.sys7_desc">Automated clinical laboratory software with patient specimen barcode management, pathology test report generation, doctor referral commission tracking, and billing ledger.</p>
                             <div class="timeline-tags">
                                 <span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>Pathology Reports</span><span>Barcode Scanner</span>
                             </div>
@@ -1383,9 +1341,9 @@
                     <div class="timeline-item right">
                         <div class="timeline-dot"><i class="fa-solid fa-truck-fast"></i></div>
                         <div class="timeline-content glass-card">
-                            <span class="timeline-date">Logistics & Supply Chain</span>
-                            <h3>Pigeon Express International Courier System</h3>
-                            <p>Enterprise parcel delivery network with live Airway Bill (AWB) status tracking, automated consignment dispatching, delivery agent routing, and branch collection reconciliation.</p>
+                            <span class="timeline-date" data-i18n="timeline.sys8_date">Logistics & Supply Chain</span>
+                            <h3 data-i18n="timeline.sys8_title">Pigeon Express International Courier System</h3>
+                            <p data-i18n="timeline.sys8_desc">Enterprise parcel delivery network with live Airway Bill (AWB) status tracking, automated consignment dispatching, delivery agent routing, and branch collection reconciliation.</p>
                             <div class="timeline-tags">
                                 <span>Laravel</span><span>REST API</span><span>MySQL</span><span>AWB Tracking</span><span>Dispatch Engine</span>
                             </div>
@@ -1399,12 +1357,12 @@
         <section id="faq" class="section faq-section">
             <div class="container">
                 <div class="section-title-wrapper">
-                    <span class="section-subtitle">Quick Answers</span>
-                    <h2 class="section-title">Frequently Asked <span class="highlight-text">Questions</span></h2>
+                    <span class="section-subtitle" data-i18n="faq.subtitle">Quick Answers</span>
+                    <h2 class="section-title"><span data-i18n="faq.title_prefix">Frequently Asked</span> <span class="highlight-text" data-i18n="faq.title_highlight">Questions</span></h2>
                     <div class="section-divider"></div>
                 </div>
                 <div class="faq-list" id="faq-list">
-                    <!-- Rendered by script.js from the shared knowledge base -->
+                    <!-- Rendered dynamically by script.js with bilingual support -->
                 </div>
             </div>
         </section>
@@ -1413,8 +1371,8 @@
         <section id="contact" class="section contact-section">
             <div class="container">
                 <div class="section-title-wrapper">
-                    <span class="section-subtitle">Direct Client Access</span>
-                    <h2 class="section-title">Contact <span class="highlight-text">Me</span></h2>
+                    <span class="section-subtitle" data-i18n="contact.subtitle">Direct Client Access</span>
+                    <h2 class="section-title"><span data-i18n="contact.title_prefix">Contact</span> <span class="highlight-text" data-i18n="contact.title_highlight">Me</span></h2>
                     <div class="section-divider"></div>
                 </div>
 
@@ -1424,11 +1382,11 @@
                         <div class="contact-card glass-card">
                             <div class="c-icon"><i class="fa-brands fa-whatsapp"></i></div>
                             <div class="c-details">
-                                <h4>WhatsApp (Instant Chat)</h4>
+                                <h4 data-i18n="contact.card_phone_title">WhatsApp (Instant Chat)</h4>
                                 <p><a href="https://wa.me/8801639008885" target="_blank">+880 1639008885</a></p>
                                 <div style="display: flex; gap: 0.5rem; margin-top: 0.3rem;">
-                                    <a href="https://wa.me/8801639008885" target="_blank" class="chat-link">Open WhatsApp Chat <i class="fa-solid fa-arrow-right"></i></a>
-                                    <button class="copy-btn" data-copy="01639008885"><i class="fa-solid fa-copy"></i> Copy</button>
+                                    <a href="https://wa.me/8801639008885" target="_blank" class="chat-link"><span data-i18n="contact.btn_wa_chat">Open WhatsApp Chat</span> <i class="fa-solid fa-arrow-right"></i></a>
+                                    <button class="copy-btn" data-copy="01639008885"><i class="fa-solid fa-copy"></i> <span data-i18n="contact.copy">Copy</span></button>
                                 </div>
                             </div>
                         </div>
@@ -1438,18 +1396,18 @@
                             <div class="c-details">
                                 <h4>Facebook Messenger</h4>
                                 <p><a href="https://m.me/ab.saleh.abdullah/" target="_blank">ab.saleh.abdullah</a></p>
-                                <a href="https://m.me/ab.saleh.abdullah/" target="_blank" class="chat-link">Chat on Messenger <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="https://m.me/ab.saleh.abdullah/" target="_blank" class="chat-link"><span data-i18n="contact.btn_msg_chat">Chat on Messenger</span> <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
 
                         <div class="contact-card glass-card">
                             <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
                             <div class="c-details">
-                                <h4>Direct Gmail / Inbox</h4>
+                                <h4 data-i18n="contact.card_email_title">Direct Gmail / Inbox</h4>
                                 <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=abuhmdabdullah72@gmail.com" target="_blank">abuhmdabdullah72@gmail.com</a></p>
                                 <div style="display: flex; gap: 0.5rem; margin-top: 0.3rem;">
-                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abuhmdabdullah72@gmail.com" target="_blank" class="chat-link">Compose Direct Mail <i class="fa-solid fa-arrow-right"></i></a>
-                                    <button class="copy-btn" data-copy="abuhmdabdullah72@gmail.com"><i class="fa-solid fa-copy"></i> Copy</button>
+                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abuhmdabdullah72@gmail.com" target="_blank" class="chat-link"><span data-i18n="contact.btn_compose">Compose Direct Mail</span> <i class="fa-solid fa-arrow-right"></i></a>
+                                    <button class="copy-btn" data-copy="abuhmdabdullah72@gmail.com"><i class="fa-solid fa-copy"></i> <span data-i18n="contact.copy">Copy</span></button>
                                 </div>
                             </div>
                         </div>
@@ -1457,11 +1415,11 @@
                         <div class="contact-card glass-card">
                             <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
                             <div class="c-details">
-                                <h4>Phone / Direct Call</h4>
+                                <h4 data-i18n="contact.card_phone_label">Phone / Direct Call</h4>
                                 <p><a href="tel:+8801639008885">+880 1639008885</a></p>
                                 <div style="display: flex; gap: 0.5rem; margin-top: 0.3rem;">
-                                    <a href="tel:+8801639008885" class="chat-link">Call Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <button class="copy-btn" data-copy="+8801639008885"><i class="fa-solid fa-copy"></i> Copy</button>
+                                    <a href="tel:+8801639008885" class="chat-link"><span data-i18n="contact.btn_call">Call Now</span> <i class="fa-solid fa-arrow-right"></i></a>
+                                    <button class="copy-btn" data-copy="+8801639008885"><i class="fa-solid fa-copy"></i> <span data-i18n="contact.copy">Copy</span></button>
                                 </div>
                             </div>
                         </div>
@@ -1469,57 +1427,57 @@
                         <div class="contact-card glass-card">
                             <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
                             <div class="c-details">
-                                <h4>Location & Work Base</h4>
-                                <p>338/17/C, Khilgaon, Dhaka - 1219, Bangladesh</p>
-                                <span class="status-indicator-inline"><span class="pulse-dot"></span> Available for Remote &amp; On-Site Contracts</span>
+                                <h4 data-i18n="contact.card_location_title">Location & Work Base</h4>
+                                <p data-i18n="contact.card_location_desc">338/17/C, Khilgaon, Dhaka - 1219, Bangladesh</p>
+                                <span class="status-indicator-inline"><span class="pulse-dot"></span> <span data-i18n="contact.card_avail">Available for Remote &amp; On-Site Contracts</span></span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Direct Message Form -->
                     <div class="contact-form-wrapper glass-card">
-                        <h3>Send a Message & Contact Directly</h3>
-                        <p>When you submit below, the form dispatches your message directly to email <strong>abuhmdabdullah72@gmail.com</strong> and WhatsApp (<strong>01639008885</strong>)!</p>
+                        <h3 data-i18n="contact.form_title">Send a Message & Contact Directly</h3>
+                        <p data-i18n="contact.form_desc" data-i18n-html="true">When you submit below, the form dispatches your message directly to email <strong>abuhmdabdullah72@gmail.com</strong> and WhatsApp (<strong>01639008885</strong>)!</p>
                         
                         <form id="contact-form" class="contact-form" action="https://formspree.io/f/xvgaovbr" method="POST" novalidate>
                             <div class="form-group">
-                                <label for="name">Your Name <span class="required">*</span></label>
+                                <label for="name"><span data-i18n="contact.label_name">Your Name</span> <span class="required">*</span></label>
                                 <div class="input-icon-wrap">
                                     <i class="fa-solid fa-user"></i>
-                                    <input type="text" id="name" name="name" placeholder="Client Name" required>
+                                    <input type="text" id="name" name="name" placeholder="Client Name" data-i18n-placeholder="contact.placeholder_name" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Your Email / Contact No.<span class="required">*</span></label>
+                                <label for="email"><span data-i18n="contact.label_email">Your Email / Contact No.</span> <span class="required">*</span></label>
                                 <div class="input-icon-wrap">
                                     <i class="fa-solid fa-envelope"></i>
-                                    <input type="email" id="email" name="email" placeholder="client@example.com" required>
+                                    <input type="email" id="email" name="email" placeholder="client@example.com" data-i18n-placeholder="contact.placeholder_email" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="subject">Project Subject <span class="required">*</span></label>
+                                <label for="subject"><span data-i18n="contact.label_subject">Project Subject</span> <span class="required">*</span></label>
                                 <div class="input-icon-wrap">
                                     <i class="fa-solid fa-pen-nib"></i>
-                                    <input type="text" id="subject" name="subject" placeholder="New Web Development / Hiring Inquiry" required>
+                                    <input type="text" id="subject" name="subject" placeholder="New Web Development / Hiring Inquiry" data-i18n-placeholder="contact.placeholder_subject" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="message">Project Requirements <span class="required">*</span></label>
+                                <label for="message"><span data-i18n="contact.label_message">Project Requirements</span> <span class="required">*</span></label>
                                 <div class="input-icon-wrap">
                                     <i class="fa-solid fa-message"></i>
-                                    <textarea id="message" name="message" rows="4" placeholder="Hello Abdullah, I would like to discuss a web project..." required></textarea>
+                                    <textarea id="message" name="message" rows="4" placeholder="Hello Abdullah, I would like to discuss a web project..." data-i18n-placeholder="contact.placeholder_message" required></textarea>
                                 </div>
                             </div>
 
                             <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                                 <button type="submit" class="btn btn-primary" id="submit-btn" style="flex: 1;">
-                                    <i class="fa-solid fa-paper-plane"></i> Send Email
+                                    <i class="fa-solid fa-paper-plane"></i> <span data-i18n="contact.btn_submit">Send Email</span>
                                 </button>
                                 <button type="button" class="btn btn-outline" id="whatsapp-send-btn" style="flex: 1; border-color: var(--accent-emerald); color: var(--accent-emerald);">
-                                    <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
+                                    <i class="fa-brands fa-whatsapp"></i> <span data-i18n="contact.btn_whatsapp">Send via WhatsApp</span>
                                 </button>
                             </div>
                         </form>
@@ -1541,8 +1499,8 @@
                 <div class="ai-header-info">
                     <span class="ai-avatar"><i class="fa-solid fa-microchip"></i></span>
                     <div>
-                        <h4>Ask AI about Abdullah</h4>
-                        <span class="ai-status"><span class="ai-status-dot"></span> Instant answers, 24/7</span>
+                        <h4 data-i18n="ai.header_title">Ask AI about Abdullah</h4>
+                        <span class="ai-status"><span class="ai-status-dot"></span> <span data-i18n="ai.header_status">Instant answers, 24/7</span></span>
                     </div>
                 </div>
                 <button class="ai-close-btn" id="ai-close" aria-label="Close">&times;</button>
@@ -1550,56 +1508,56 @@
 
             <div class="ai-messages" id="ai-messages">
                 <div class="ai-msg ai-msg-bot">
-                    <div>Hi, I'm Abdullah's AI Assistant 👋 Ask me anything or select a topic below:</div>
+                    <div data-i18n="ai.welcome_msg">Hi, I'm Abdullah's AI Assistant 👋 Ask me anything or select a topic below:</div>
                     <div class="ai-welcome-grid">
-                        <button type="button" class="ai-welcome-card" data-q="What is Abdullah's full tech stack?">
+                        <button type="button" class="ai-welcome-card" data-q="What is Abdullah's full tech stack?" data-i18n-q="ai.card1_q">
                             <span class="ai-wc-icon">⚡</span>
-                            <span class="ai-wc-text">Tech Stack</span>
-                            <span class="ai-wc-sub">Laravel, Vue, Next, MySQL</span>
+                            <span class="ai-wc-text" data-i18n="ai.card1_title">Tech Stack</span>
+                            <span class="ai-wc-sub" data-i18n="ai.card1_sub">Laravel, Vue, Next, MySQL</span>
                         </button>
-                        <button type="button" class="ai-welcome-card" data-q="Is Abdullah available for hire or freelance?">
+                        <button type="button" class="ai-welcome-card" data-q="Is Abdullah available for hire or freelance?" data-i18n-q="ai.card2_q">
                             <span class="ai-wc-icon">💼</span>
-                            <span class="ai-wc-text">Available for Hire</span>
-                            <span class="ai-wc-sub">Full-time, Contract & Remote</span>
+                            <span class="ai-wc-text" data-i18n="ai.card2_title">Available for Hire</span>
+                            <span class="ai-wc-sub" data-i18n="ai.card2_sub">Full-time, Contract & Remote</span>
                         </button>
-                        <button type="button" class="ai-welcome-card" data-q="Tell me about his 40+ projects and best work">
+                        <button type="button" class="ai-welcome-card" data-q="Tell me about his 40+ projects and best work" data-i18n-q="ai.card3_q">
                             <span class="ai-wc-icon">🚀</span>
-                            <span class="ai-wc-text">40+ Projects</span>
-                            <span class="ai-wc-sub">Boostrava, ERP, POS, Portals</span>
+                            <span class="ai-wc-text" data-i18n="ai.card3_title">40+ Projects</span>
+                            <span class="ai-wc-sub" data-i18n="ai.card3_sub">Boostrava, ERP, POS, Portals</span>
                         </button>
-                        <button type="button" class="ai-welcome-card" data-q="What are his hiring rates and pricing?">
+                        <button type="button" class="ai-welcome-card" data-q="What are his hiring rates and pricing?" data-i18n-q="ai.card4_q">
                             <span class="ai-wc-icon">💰</span>
-                            <span class="ai-wc-text">Rates & Pricing</span>
-                            <span class="ai-wc-sub">Milestone & Custom Packages</span>
+                            <span class="ai-wc-text" data-i18n="ai.card4_title">Rates & Pricing</span>
+                            <span class="ai-wc-sub" data-i18n="ai.card4_sub">Milestone & Custom Packages</span>
                         </button>
                     </div>
                 </div>
             </div>
 
-
-
             <form class="ai-input-row" id="ai-form">
-                <input type="text" id="ai-input" placeholder="Type your question..." autocomplete="off" />
+                <input type="text" id="ai-input" placeholder="Type your question..." data-i18n-placeholder="ai.input_placeholder" autocomplete="off" />
                 <button type="submit" class="ai-send-btn" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button>
             </form>
         </div>
     </div>
 
-    <!-- Project Detail Dialog Modal -->
-    <dialog id="project-modal" class="project-modal glass-card">
-        <div class="modal-header">
-            <h3 id="modal-title">Project Details</h3>
-            <button id="modal-close" class="modal-close-btn">&times;</button>
+    <!-- Project Detail Modal Overlay -->
+    <div id="project-modal" class="project-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="project-modal glass-card">
+            <div class="modal-header">
+                <h3 id="modal-title" data-i18n="projects.modal_title">Project Details</h3>
+                <button id="modal-close" class="modal-close-btn" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamic modal content -->
+            </div>
         </div>
-        <div class="modal-body" id="modal-body">
-            <!-- Dynamic modal content -->
-        </div>
-    </dialog>
+    </div>
 
     <!-- Toast Notification Box -->
     <div id="toast" class="toast-notification">
         <i class="fa-solid fa-circle-check toast-icon"></i>
-        <span id="toast-message">Message sent successfully!</span>
+        <span id="toast-message" data-i18n="contact.toast_success">Message sent successfully!</span>
     </div>
 
     <!-- Scroll to Top Button -->
@@ -1617,21 +1575,21 @@
                     </div>
                     <span class="brand-name">A.S.M. <span class="accent-text">Abdullah</span></span>
                 </a>
-                <p>Empowering businesses with custom Web Architecture, Enterprise Systems, and High-Performance Web Applications. Dedicated to turning complex client ideas into reliable, production-ready digital solutions.</p>
+                <p data-i18n="footer.desc">Empowering businesses with custom Web Architecture, Enterprise Systems, and High-Performance Web Applications. Dedicated to turning complex client ideas into reliable, production-ready digital solutions.</p>
             </div>
             <div class="footer-links">
-                <h4>Quick Navigation</h4>
+                <h4 data-i18n="footer.quick_links">Quick Navigation</h4>
                 <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">40+ Projects</a></li>
-                    <li><a href="#experience">Systems</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#hero" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#about" data-i18n="nav.about">About</a></li>
+                    <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+                    <li><a href="#projects" data-i18n="nav.projects">40+ Projects</a></li>
+                    <li><a href="#experience" data-i18n="nav.systems">Systems</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-socials">
-                <h4>Connect Online</h4>
+                <h4 data-i18n="footer.connect">Connect Online</h4>
                 <div class="social-icons">
                     <a href="https://github.com/SOBOJBANGLA" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/abu-saleh-mohammad-abdullah-96ba67202/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
@@ -1644,7 +1602,7 @@
         </div>
         <div class="footer-bottom">
             <div class="container">
-                <p>&copy; 2026 A.S.M. Abdullah. All Rights Reserved.</p>
+                <p>&copy; 2026 A.S.M. Abdullah. <span data-i18n="footer.rights">All Rights Reserved.</span></p>
             </div>
         </div>
     </footer>
