@@ -3274,7 +3274,7 @@ body.cursor-ready .cursor-ring {
 
     .nav-brand {
         gap: 0.55rem;
-        max-width: calc(100% - 105px);
+        max-width: calc(100% - 95px);
         overflow: hidden;
     }
 
@@ -3295,6 +3295,14 @@ body.cursor-ready .cursor-ring {
         font-size: 0.65rem;
         padding: 0.1rem 0.4rem;
         white-space: nowrap;
+    }
+
+    .nav-actions .lang-toggle-btn {
+        display: none;
+    }
+
+    .mobile-nav-controls .lang-toggle-btn {
+        display: inline-flex;
     }
 
     .nav-indicator {
