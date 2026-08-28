@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     const typewriterElement = document.getElementById('typewriter');
     const phrases = [
-        "Senior Full-Stack Web Developer in Dhaka",
-        "Laravel & PHP Specialist in Bangladesh",
+        "Senior Full-Stack Web Developer",
+        "Laravel & PHP Specialist",
         "Vue.js, React.js & Next.js Architect",
         "Creator of 40+ Live Commercial Projects",
         "Enterprise HRMS, POS & AdTech Engineer",
