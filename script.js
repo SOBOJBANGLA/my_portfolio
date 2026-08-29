@@ -738,7 +738,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Boost RAVA Programmatic SSP, DSP, RTB & DOOH Ad Network",
             category: "Programmatic AdTech & SaaS Platform",
             url: "https://boostrava.com/",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Next.js", "React", "Tailwind CSS", "RTB Engine", "SSP / DSP Architecture", "REST API", "Analytics"],
             description: "Full-stack programmatic ad network offering Supply-Side Platform (SSP), Demand-Side Platform (DSP), Real-Time Bidding (RTB) solutions, and DOOH advertising. Built with Next.js for high performance and scale, featuring automated media buying/selling, publisher monetization, advertiser campaigns, and cross-platform ad serving."
         },
@@ -746,7 +746,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "TeaSoft Systems Enterprise Platform",
             category: "Software Solutions & Enterprise",
             url: "https://teasoft.com.bd/",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel", "Vue.js", "PHP", "MySQL", "REST API"],
             description: "Official web platform for TeaSoft Software Solutions, highlighting enterprise ERP modules, HR management tools, business accounting integrations, and custom software product suites."
         },
@@ -754,7 +754,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Rangpur Police Web Portal",
             category: "Public Service & Government",
             url: "https://police.rangpur.news/",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel", "PHP", "Blade", "MySQL", "Bootstrap"],
             description: "Official digital public service portal for Rangpur Police Department. Designed to publish public safety announcements, officer directory, citizen emergency contacts, press releases, and crime reporting forms."
         },
@@ -762,7 +762,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "LinkLine BD ISP Broadband Platform",
             category: "ISP & Telecom Portal",
             url: "https://linklinebd.com/",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel", "PHP MVC", "MySQL", "REST API", "Bootstrap"],
             description: "Official web application for LinkLine BD Internet Service Provider. Features interactive internet bandwidth package cards, coverage availability checker, customer bill pay module, and online line connection booking."
         },
@@ -770,7 +770,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Mirza School Portal & Management System",
             category: "Education Portal",
             url: "https://mirzaschool.edu.bd/",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel", "PHP MVC", "Blade Engine", "MySQL", "Bootstrap"],
             description: "A comprehensive academic portal engineered for Mirza School. Features dynamic notice publishing, online admission inquiries, student registration directory, dynamic photo gallery, and teacher administration dashboard."
         },
@@ -778,7 +778,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Rangpur News Digital Media Portal",
             category: "Online Newspaper Platform",
             url: "https://rangpur.news/",
-            github: "https://github.com/SOBOJBANGLA/rangpur_news",
+            github: "https://github.com/asm-abdullah-code/rangpur_news",
             tech: ["Laravel", "Vue.js", "MySQL", "SEO Automation", "Bootstrap"],
             description: "High-throughput online newspaper platform designed for rapid news delivery. Features include category filtering, breaking news alert banner, multi-role editor permissions, and dynamic ad slot manager."
         },
@@ -786,7 +786,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "PartsPro BD E-Commerce Automobile Platform",
             category: "E-Commerce",
             url: "https://www.partsprobd.com/",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel", "MySQL", "jQuery AJAX", "Shopping Cart API"],
             description: "A modern auto parts e-commerce web application. Includes categorized product catalog, search filters, dynamic cart management, order status tracking, and merchant dashboard."
         },
@@ -794,7 +794,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "SBDA Blood Donor Community Platform",
             category: "NGO & Emergency Health",
             url: "https://sbda.org.bd/",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel", "Blade", "MySQL", "Geo-Search Filters"],
             description: "Social impact platform connecting critical blood seekers with registered voluntary blood donors. Features location-based donor search, emergency blood request posting, and SMS alerts."
         },
@@ -802,7 +802,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Mahir Developers Real Estate Web App",
             category: "Real Estate Showcase",
             url: "https://mahirdevelopers.com/",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel", "Vue.js", "Bootstrap", "Responsive Layout"],
             description: "Corporate digital showcase for Mahir Developers, highlighting luxury apartment projects, floor layouts, property inquiry forms, and interactive location maps."
         },
@@ -810,7 +810,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "WSDMS Wholesale POS & Sales System",
             category: "Enterprise POS Management",
             url: "https://wsdms.ontechict.com.bd/auth-login",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel", "Vue.js", "MySQL", "Role Permissions", "Invoice Engine"],
             description: "Enterprise point-of-sale solution for wholesale inventory distribution. Features real-time stock tracking, customer debt ledgers, barcode checkout, and multi-user authentication."
         },
@@ -818,7 +818,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Pharmacy Store Management & Medicine ERP Platform",
             category: "Healthcare & Pharmacy SaaS",
             url: "",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel", "PHP", "Vue.js", "MySQL", "20k+ Medicine Dataset", "Barcode Scanner", "Thermal POS"],
             description: "Enterprise pharmacy ERP featuring 20,000+ national medicine database with generic auto-suggest, batch expiry tracking, shortage alerts, instant barcode scanning, purchase orders, and profit/loss financial statements."
         },
@@ -826,7 +826,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Clinical Laboratory & Pathology Diagnostic ERP",
             category: "Medical & Diagnostic ERP",
             url: "",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel", "Vue.js", "MySQL", "Specimen Barcode", "Doctor Commission Engine", "Pathology Reporting"],
             description: "Clinical laboratory management software handling diagnostic test categories, patient specimen barcodes, automated PDF pathology test report generation, doctor referral commission ledgers, and multi-branch accounting."
         },
@@ -834,7 +834,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Automotive Garage & Auto Parts Inventory ERP",
             category: "Automotive & Workshop ERP",
             url: "",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel", "PHP", "MySQL", "Digital Job-Cards", "Auto Parts Inventory", "Invoice Engine"],
             description: "Automobile repair and service shop ERP with digital intake inspection, vehicle job-card lifecycle, mechanic task assignments, spare parts inventory control, and multi-tier customer billing."
         },
@@ -842,7 +842,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Apparel Buying House & Textile Export Management Portal",
             category: "Garments & Buying House",
             url: "",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel", "Vue.js", "Bootstrap", "Export Workflow", "Buyer Inquiry CRM"],
             description: "International buying house digital portal for apparel exporters. Features fabric sample catalogs, buyer quotation (RFQ) pipelines, sampling approval milestones, and export shipment status tracking."
         },
@@ -850,7 +850,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "International Logistics & Courier Tracking System",
             category: "Logistics & Courier Tracking",
             url: "",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel", "REST API", "MySQL", "Airway Bill (AWB)", "Live Tracking", "Branch Dispatch"],
             description: "Full-scale courier and parcel logistics management system. Generates barcode Airway Bills (AWB), provides real-time public parcel tracking, delivery agent route dispatching, and branch collection reconciliation."
         },
@@ -858,7 +858,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Payment Gateway Integration Engine",
             category: "Payment Gateways & FinTech",
             url: "",
-            github: "https://github.com/SOBOJBANGLA",
+            github: "https://github.com/asm-abdullah-code",
             tech: ["Laravel 11/12", "PHP", "Payment Gateway API", "IPN Webhooks", "Ledger Reconciliation"],
             description: "Production payment processing engine for Laravel supporting multi-channel transactions (Cards, Mobile Financial Services, Internet Banking). Handles automated checkout sessions, Instant Payment Notification (IPN) webhooks, transaction validation, and ledger balance reconciliation."
         }
