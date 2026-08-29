@@ -1484,7 +1484,7 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 topic: "Tech Stack & Architecture",
                 keywords: ["tech", "stack", "skill", "language", "framework", "php", "laravel", "vue", "react", "next", "mysql", "redis", "docker", "cpanel", "tailwind", "rest api", "backend", "frontend", "technolog"],
-                a: "A.S.M. Abdullah is a Full-Stack Software Engineer with deep expertise across modern web technologies:\n• Backend: Laravel 10/11, PHP 8+, RESTful API Architecture, Microservices, Authentication (Sanctum/Passport)\n• Frontend: Vue.js 3 (Composition API, Pinia), React.js, Next.js (SSR/SSG), TypeScript, Tailwind CSS\n• Database & Cache: MySQL (Advanced Query Optimization, Indexing, Schema Design), Redis In-Memory Caching\n• DevOps: Docker, Git & GitHub CI/CD, cPanel, Nginx/Apache, Postman API testing."
+                a: "A.S.M. Abdullah is a Full-Stack Software Engineer with deep expertise across modern web technologies:\n• Backend: Laravel, PHP, RESTful API Architecture, Microservices, Authentication (Sanctum/Passport)\n• Frontend: Vue.js 3 (Composition API, Pinia), React.js, Next.js (SSR/SSG), TypeScript, Tailwind CSS\n• Database & Cache: MySQL (Advanced Query Optimization, Indexing, Schema Design), Redis In-Memory Caching\n• DevOps: Docker, Git & GitHub CI/CD, cPanel, Nginx/Apache, Postman API testing."
             },
             {
                 topic: "Work Experience & Background",
